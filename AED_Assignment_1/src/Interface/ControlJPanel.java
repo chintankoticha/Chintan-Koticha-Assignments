@@ -6,11 +6,14 @@
 package Interface;
 
 import Business.Resume;
+import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -25,6 +28,7 @@ public class ControlJPanel extends javax.swing.JPanel {
     private Resume resume;
     public ControlJPanel(Resume resume) {
         initComponents();
+        submitBtn.setVisible(false);
         this.resume=resume;
     }
 
@@ -88,8 +92,11 @@ public class ControlJPanel extends javax.swing.JPanel {
         carObjStatTxtField = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
         imagePathTxtField = new javax.swing.JTextArea();
+        confirmCheckBox = new javax.swing.JCheckBox();
 
         setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -185,6 +192,18 @@ public class ControlJPanel extends javax.swing.JPanel {
         imagePathTxtField.setLineWrap(true);
         imagePathTxtField.setRows(5);
         jScrollPane5.setViewportView(imagePathTxtField);
+
+        confirmCheckBox.setText("I, hereby certify, all the above mentioned information is true to the best of my knowledge.");
+        confirmCheckBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                confirmCheckBoxItemStateChanged(evt);
+            }
+        });
+        confirmCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmCheckBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -283,7 +302,8 @@ public class ControlJPanel extends javax.swing.JPanel {
                                                 .addGap(68, 68, 68))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(43, 43, 43))))))))
+                                                .addGap(43, 43, 43))))))
+                            .addComponent(confirmCheckBox)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(413, 413, 413)
                         .addComponent(jLabel1))
@@ -379,7 +399,7 @@ public class ControlJPanel extends javax.swing.JPanel {
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jLabel21))
-                                                .addGap(18, 19, Short.MAX_VALUE)
+                                                .addGap(18, 18, Short.MAX_VALUE)
                                                 .addComponent(jLabel22)
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,15 +409,18 @@ public class ControlJPanel extends javax.swing.JPanel {
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(contactNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jLabel24))
-                                                .addGap(95, 95, 95)
-                                                .addComponent(submitBtn)
-                                                .addContainerGap(817, Short.MAX_VALUE))
+                                                .addGap(37, 37, 37))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel20)
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addGap(342, 342, 342)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(confirmCheckBox)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(submitBtn)
+                                        .addContainerGap(817, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel19)
-                                        .addContainerGap())))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addGap(0, 0, Short.MAX_VALUE))))
@@ -417,6 +440,7 @@ public class ControlJPanel extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+        if ( validateFields() ) {
        resume.setFirstName(firstNameTxtField.getText());
        resume.setLastName(lastNameTxtField.getText());
        resume.setStreetLn1(streetLn1TxtField.getText());
@@ -436,12 +460,13 @@ public class ControlJPanel extends javax.swing.JPanel {
        resume.setContactNumber(contactNumberTxtField.getText());
        
        JOptionPane.showMessageDialog(null, "Resume Submitted Successfully !!!");
+        }
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void browseImageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseImageBtnActionPerformed
         // TODO add your handling code here:
       JFileChooser chooseImage = new JFileChooser();
-      FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif");
+      FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG Images", "jpg");
       chooseImage.setFileFilter(filter);
       int returnVal = chooseImage.showOpenDialog(null);
       
@@ -455,12 +480,103 @@ public class ControlJPanel extends javax.swing.JPanel {
       }
     }//GEN-LAST:event_browseImageBtnActionPerformed
 
+    private void confirmCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmCheckBoxActionPerformed
+
+    private void confirmCheckBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_confirmCheckBoxItemStateChanged
+        // TODO add your handling code here:
+         if(confirmCheckBox.isSelected())
+         {
+          submitBtn.setVisible(true);
+         }
+         else
+         {
+          submitBtn.setVisible(false);
+         }
+    }//GEN-LAST:event_confirmCheckBoxItemStateChanged
+
+    public boolean validateFields() {
+     if (! validateField( firstNameTxtField, "Please enter a first name"))
+      return false;
+     else if (! validateField( lastNameTxtField, "Please enter a last name"))
+      return false;
+     else if (! validateField( streetLn1TxtField, "Please enter an Street line1 address"))
+      return false;
+     else if (! validateField( cityTxtField, "Please enter city"))
+      return false;
+     else if (! validateField( countryTxtField, "Please enter country"))
+      return false;
+     else if (! validateField(affiliationTxtField, "Please enter an affiliation"))
+      return false;
+     else if (! validateFieldArea( carObjStatTxtField, "Please enter an Carrier Objective Statement"))
+      return false;
+     else if (! validateField( degree1TxtField, "Please enter degree1"))
+      return false;
+     else if (! validateField( degree1DateTextField, "Please enter an degree 1 completion date"))
+      return false;
+     else if (! validateField( totalExpTxtField, "Please enter total experience in Years"))
+      return false;
+     else if (! validateFieldArea( progKnowledgeTxtField, "Please enter programming languages known"))
+      return false;
+     else if (! validateFieldArea( softwareKnowledgeTxtField, "Please enter softwares worked on"))
+      return false;
+     else if (! validateField( emailIdTxtField, "Please enter an degree 1 completion date"))
+      return false;
+     else if (! validateField( contactNumberTxtField, "Please enter an degree 1 completion date"))
+      return false;
+     else
+      return true;
+    }
+    
+    public boolean validateField( JTextField f, String errormsg )
+    {
+      if ( f.getText().trim().equals("") )
+       return failedMessage( f, errormsg );
+      else
+       return true; //for successfully validated
+    }
+    
+    public boolean validateFieldArea( JTextArea f, String errormsg )
+    {
+      if ( f.getText().trim().equals("") )
+       return failedMessageArea( f, errormsg );
+      else
+       return true; //for successfully validated
+    }
+    
+    public boolean failedMessageArea(JTextArea f, String errormsg) {
+     JOptionPane.showMessageDialog(null, errormsg);
+     f.setBackground(Color.RED); // set Red color on field
+     return false;
+    }   
+    
+    public boolean failedMessage(JTextField f, String errormsg) {
+     JOptionPane.showMessageDialog(null, errormsg);
+     f.setBackground(Color.RED); // set Red color on field
+     return false;
+    }
+    
+    public boolean validateInteger( JTextField f, String errormsg ) {
+     try
+      {
+       int i = Integer.parseInt(f.getText());
+       if ( i > 0 )
+        return true; // success, validation succeeded
+      }
+     catch(Exception e)
+      {
+      }
+     return failedMessage( f, errormsg );
+    }
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField affiliationTxtField;
     private javax.swing.JButton browseImageBtn;
     private javax.swing.JTextArea carObjStatTxtField;
     private javax.swing.JTextField cityTxtField;
+    private javax.swing.JCheckBox confirmCheckBox;
     private javax.swing.JTextField contactNumberTxtField;
     private javax.swing.JTextField countryTxtField;
     private javax.swing.JTextField degree1DateTextField;
