@@ -167,4 +167,16 @@ public class Resume {
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
+    
+    //Method for saving Image filepath 
+    public String filePath;
+    public void setImagePath(String filePath)
+    {
+     this.filePath=filePath;
+    }
+    
+    public String getImagePath()
+    {
+        return filePath;
+    }
 }
