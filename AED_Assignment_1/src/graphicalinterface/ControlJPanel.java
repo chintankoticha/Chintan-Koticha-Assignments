@@ -9,12 +9,15 @@ import business.Resume;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.File;
+import java.text.NumberFormat;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.NumberFormatter;
 
 /**
  *
@@ -84,7 +87,6 @@ public class ControlJPanel extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         emailIdTxtField = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        contactNumberTxtField = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
         browseImageBtn = new javax.swing.JButton();
         imgLabel = new javax.swing.JLabel();
@@ -93,6 +95,7 @@ public class ControlJPanel extends javax.swing.JPanel {
         jScrollPane5 = new javax.swing.JScrollPane();
         imagePathTxtField = new javax.swing.JTextArea();
         confirmCheckBox = new javax.swing.JCheckBox();
+        contactNumberTxtField = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -265,7 +268,8 @@ public class ControlJPanel extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(contactNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(contactNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(256, 256, 256))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,7 +531,7 @@ public class ControlJPanel extends javax.swing.JPanel {
       return false;
      else if (! validateField( emailIdTxtField, "Please enter emailId"))
       return false;
-     else if (! validateField( contactNumberTxtField, "Please enter an contact number"))
+     else if (! validateField(contactNumberTxtField, "Please enter an contact number"))
       return false;
      else
       return true;

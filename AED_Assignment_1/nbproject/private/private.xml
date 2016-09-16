@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/Interface/ControlJPanel.java</file>
-            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/Interface/DisplayJPanel.java</file>
-            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/Interface/MainJFrame.java</file>
-            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/Business/Resume.java</file>
+            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/business/Resume.java</file>
+            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/graphicalinterface/MainJFrame.java</file>
+            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/graphicalinterface/ControlJPanel.java</file>
+            <file>file:/C:/Users/Chintan/Documents/NetBeansProjects/AED_Assignment_1/src/graphicalinterface/DisplayJPanel.java</file>
         </group>
     </open-files>
 </project-private>
