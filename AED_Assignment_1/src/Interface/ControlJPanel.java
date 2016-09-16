@@ -185,9 +185,11 @@ public class ControlJPanel extends javax.swing.JPanel {
         });
 
         carObjStatTxtField.setColumns(20);
+        carObjStatTxtField.setLineWrap(true);
         carObjStatTxtField.setRows(5);
         jScrollPane3.setViewportView(carObjStatTxtField);
 
+        imagePathTxtField.setEditable(false);
         imagePathTxtField.setColumns(20);
         imagePathTxtField.setLineWrap(true);
         imagePathTxtField.setRows(5);
@@ -498,7 +500,9 @@ public class ControlJPanel extends javax.swing.JPanel {
 
     public boolean validateFields() {
      if (! validateField( firstNameTxtField, "Please enter a first name"))
+     {
       return false;
+     }
      else if (! validateField( lastNameTxtField, "Please enter a last name"))
       return false;
      else if (! validateField( streetLn1TxtField, "Please enter an Street line1 address"))
@@ -521,9 +525,9 @@ public class ControlJPanel extends javax.swing.JPanel {
       return false;
      else if (! validateFieldArea( softwareKnowledgeTxtField, "Please enter softwares worked on"))
       return false;
-     else if (! validateField( emailIdTxtField, "Please enter an degree 1 completion date"))
+     else if (! validateField( emailIdTxtField, "Please enter emailId"))
       return false;
-     else if (! validateField( contactNumberTxtField, "Please enter an degree 1 completion date"))
+     else if (! validateField( contactNumberTxtField, "Please enter an contact number"))
       return false;
      else
       return true;
@@ -534,7 +538,10 @@ public class ControlJPanel extends javax.swing.JPanel {
       if ( f.getText().trim().equals("") )
        return failedMessage( f, errormsg );
       else
+      {
+       f.setBackground(Color.WHITE);
        return true; //for successfully validated
+      }
     }
     
     public boolean validateFieldArea( JTextArea f, String errormsg )
@@ -542,7 +549,10 @@ public class ControlJPanel extends javax.swing.JPanel {
       if ( f.getText().trim().equals("") )
        return failedMessageArea( f, errormsg );
       else
+      {
+       f.setBackground(Color.WHITE);
        return true; //for successfully validated
+      }
     }
     
     public boolean failedMessageArea(JTextArea f, String errormsg) {
