@@ -127,7 +127,7 @@ public class CreateVitalsJPanel extends javax.swing.JPanel {
         String date=txtDate.getText();
         
         VitalSigns v =vsh.addVitals();
-        v.setBloodPressure(temperature);
+        v.setTemperature(temperature);
         v.setDate(date);
         v.setPulse(pulse);
         v.setBloodPressure(bp);

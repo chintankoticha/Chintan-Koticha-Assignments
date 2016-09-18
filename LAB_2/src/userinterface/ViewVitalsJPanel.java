@@ -206,6 +206,10 @@ public class ViewVitalsJPanel extends javax.swing.JPanel {
           vsh.deleteVitals(vs);
           JOptionPane.showMessageDialog(null, "Vital sign has been deleted!!");
           populateTable();
+          txtBloodPressure.setText("");
+          txtDate.setText("");
+          txtPulse.setText("");
+          txtTemperature.setText("");
           }
         }
         else
