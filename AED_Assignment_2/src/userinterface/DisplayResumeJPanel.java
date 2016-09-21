@@ -109,18 +109,15 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
         jCheckBox15 = new javax.swing.JCheckBox();
         jCheckBox16 = new javax.swing.JCheckBox();
         jLabel25 = new javax.swing.JLabel();
-        btnMale = new javax.swing.JRadioButton();
-        btnFemale = new javax.swing.JRadioButton();
-        btnCountryUsa = new javax.swing.JRadioButton();
-        btnCountryIntl = new javax.swing.JRadioButton();
         jLabel26 = new javax.swing.JLabel();
-        btnGradYes = new javax.swing.JRadioButton();
-        btnGradNo = new javax.swing.JRadioButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblResumeList = new javax.swing.JTable();
         jLabel27 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnViewResume = new javax.swing.JButton();
+        btnDeleteResume = new javax.swing.JButton();
+        graduationTxtField = new javax.swing.JTextField();
+        genderTextField = new javax.swing.JTextField();
+        countryTxtField = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -262,25 +259,7 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel25.setText("Gender:");
 
-        btnMale.setText("MALE");
-        btnMale.setEnabled(false);
-
-        btnFemale.setText("FEMALE");
-        btnFemale.setEnabled(false);
-
-        btnCountryUsa.setText("USA");
-        btnCountryUsa.setEnabled(false);
-
-        btnCountryIntl.setText("INTERNATIONAL");
-        btnCountryIntl.setEnabled(false);
-
         jLabel26.setText("HAVE YOU GRADUATED?");
-
-        btnGradYes.setText("YES");
-        btnGradYes.setEnabled(false);
-
-        btnGradNo.setText("NO");
-        btnGradNo.setEnabled(false);
 
         tblResumeList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -304,19 +283,25 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
         jLabel27.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel27.setText("LIST OF RESUMES CREATED:");
 
-        jButton1.setText("VIEW RESUME");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnViewResume.setText("VIEW RESUME");
+        btnViewResume.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnViewResumeActionPerformed(evt);
             }
         });
 
-        jButton2.setText("DELETE RESUME");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteResume.setText("DELETE RESUME");
+        btnDeleteResume.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnDeleteResumeActionPerformed(evt);
             }
         });
+
+        graduationTxtField.setEditable(false);
+
+        genderTextField.setEnabled(false);
+
+        countryTxtField.setEnabled(false);
 
         javax.swing.GroupLayout lblDegreeGradLayout = new javax.swing.GroupLayout(lblDegreeGrad);
         lblDegreeGrad.setLayout(lblDegreeGradLayout);
@@ -327,6 +312,71 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel27)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDegreeGradLayout.createSequentialGroup()
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(contactNumberTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDegreeGradLayout.createSequentialGroup()
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(emailIdTxtField)))
+                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cityTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                .addComponent(countryTxtField)))
+                        .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(affiliationTxtField))
+                        .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jScrollPane3)))
+                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnViewResume, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(streetLn2TxtField))
+                                .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(streetLn1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(genderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDegreeGradLayout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(firstNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                                .addGap(210, 210, 210)
+                                .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblDegreeGradLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnDeleteResume)
+                                .addGap(171, 171, 171))))
                     .addGroup(lblDegreeGradLayout.createSequentialGroup()
                         .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -346,11 +396,6 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(degree1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                .addComponent(btnGradYes, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnGradNo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(lblDegreeGradLayout.createSequentialGroup()
                                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
@@ -365,7 +410,8 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                             .addGroup(lblDegreeGradLayout.createSequentialGroup()
                                 .addComponent(jCheckBox13, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jCheckBox14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jCheckBox14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(graduationTxtField))
                         .addGap(18, 18, 18)
                         .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -387,89 +433,13 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(degree1DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(degree2DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDegreeGradLayout.createSequentialGroup()
-                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(contactNumberTxtField, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDegreeGradLayout.createSequentialGroup()
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(emailIdTxtField)))
-                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)
-                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                    .addComponent(btnCountryUsa, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCountryIntl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(cityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(affiliationTxtField))
-                        .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane3)))
-                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(streetLn2TxtField))
-                                .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(streetLn1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblDegreeGradLayout.createSequentialGroup()
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnMale, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, Short.MAX_VALUE)
-                                    .addComponent(btnFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, lblDegreeGradLayout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(firstNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                .addGap(210, 210, 210)
-                                .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblDegreeGradLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addGap(171, 171, 171)))))
+                                    .addComponent(degree2DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(819, 819, 819))
         );
 
-        lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
+        lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDeleteResume, btnViewResume});
 
         lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cityTxtField, lastNameTxtField, streetLn1TxtField});
-
-        lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnFemale, btnMale});
-
-        lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCountryUsa, btnGradYes});
-
-        lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCountryIntl, btnGradNo});
 
         lblDegreeGradLayout.setVerticalGroup(
             lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,8 +450,8 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnViewResume)
+                    .addComponent(btnDeleteResume))
                 .addGap(100, 100, 100)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -495,10 +465,9 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(lastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnMale)
+                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
-                            .addComponent(btnFemale))
+                            .addComponent(genderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
@@ -517,10 +486,8 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCountryUsa)
-                        .addComponent(btnCountryIntl)))
-                .addGap(18, 18, 18)
+                    .addComponent(countryTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,62 +507,56 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel15))
                     .addComponent(jLabel14))
                 .addGap(18, 18, 18)
+                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(graduationTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnGradYes)
-                            .addComponent(btnGradNo))
-                        .addGap(344, 344, Short.MAX_VALUE))
-                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                        .addComponent(jLabel26)
-                        .addGap(24, 24, 24)
                         .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(degree2TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel18))
-                            .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(degree2DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDegreeGradDate))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(degree2TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                        .addComponent(jLabel18))
+                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(degree2DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDegreeGradDate))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
+                        .addComponent(totalExpTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                .addComponent(totalExpTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox1)
+                                    .addComponent(jCheckBox2)
+                                    .addComponent(jCheckBox3)
+                                    .addComponent(jCheckBox4))
+                                .addGap(18, 18, 18)
+                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox5)
+                                    .addComponent(jCheckBox6)
+                                    .addComponent(jCheckBox7)
+                                    .addComponent(jCheckBox8))
                                 .addGap(18, 18, 18)
                                 .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(lblDegreeGradLayout.createSequentialGroup()
-                                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckBox1)
-                                            .addComponent(jCheckBox2)
-                                            .addComponent(jCheckBox3)
-                                            .addComponent(jCheckBox4))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckBox5)
-                                            .addComponent(jCheckBox6)
-                                            .addComponent(jCheckBox7)
-                                            .addComponent(jCheckBox8))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel21)
-                                            .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jCheckBox9)
-                                                .addComponent(jCheckBox10)
-                                                .addComponent(jCheckBox11)
-                                                .addComponent(jCheckBox12)))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jCheckBox13)
-                                            .addComponent(jCheckBox14)
-                                            .addComponent(jCheckBox15)
-                                            .addComponent(jCheckBox16)))
-                                    .addComponent(jLabel20)))
-                            .addComponent(jLabel19))
-                        .addGap(18, 18, 18)))
+                                    .addComponent(jLabel21)
+                                    .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jCheckBox9)
+                                        .addComponent(jCheckBox10)
+                                        .addComponent(jCheckBox11)
+                                        .addComponent(jCheckBox12)))
+                                .addGap(18, 18, 18)
+                                .addGroup(lblDegreeGradLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox13)
+                                    .addComponent(jCheckBox14)
+                                    .addComponent(jCheckBox15)
+                                    .addComponent(jCheckBox16)))
+                            .addComponent(jLabel20)))
+                    .addComponent(jLabel19))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel22)
                 .addGap(18, 18, 18)
@@ -610,14 +571,12 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                 .addGap(71, 71, 71))
         );
 
-        lblDegreeGradLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnFemale, btnMale});
-
         jScrollPane1.setViewportView(lblDegreeGrad);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnViewResumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResumeActionPerformed
         // TODO add your handling code here:
         int selectedrow = tblResumeList.getSelectedRow();
 
@@ -633,32 +592,32 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
             carObjStatTxtField.setText(resume.getCarrierObjectiveStatement());
             degree1TxtField.setText(resume.getDegree1());
             degree2DateTextField.setText(resume.getDegree2Date());
-            String filePath=rh.getImagePath();
+            String filePath=resume.getFilePath();
             imgLabel.setIcon(new ImageIcon(new ImageIcon(filePath).getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
             
             //For Gender
             if(rh.getGenderFlagValue()==1)
             {
-                btnMale.setSelected(true);
+                genderTextField.setText("Male");
             }
             else
             {
-                btnFemale.setSelected(true);
+                genderTextField.setText("Female");
             }
             
             //For country
              if(rh.getCountryFlagValue()==1)
             {
-                btnCountryUsa.setSelected(true);
+                countryTxtField.setText("USA");
             }
             else
             {
-                btnCountryIntl.setSelected(true);
+                countryTxtField.setText("International");
             }
              
             //For Graduation 
             if (rh.getFlagValue()== 1) {
-                btnGradYes.setSelected(true);
+                graduationTxtField.setText("Yes");
                 lblDegreeGrad.setVisible(true);
                 lblDegreeGradDate.setVisible(true);
                 degree2TxtField.setVisible(true);
@@ -666,7 +625,7 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
                 degree2TxtField.setText(resume.getDegree2());
                 degree2DateTextField.setText(resume.getDegree2Date());
             } else {
-                btnGradNo.setSelected(false);
+                graduationTxtField.setText("No");
                 lblDegreeGrad.setVisible(false);
                 lblDegreeGradDate.setVisible(false);
                 degree2TxtField.setVisible(false);
@@ -678,7 +637,7 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select any row!");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnViewResumeActionPerformed
 
     private void resetFields()
     {
@@ -700,10 +659,10 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
         lblDegreeGrad.setVisible(false);
         lblDegreeGradDate.setVisible(false);
         contactNumberTxtField.setText("");
-        //ImageIcon icon = new ImageIcon("");
-        //imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
+        ImageIcon icon = new ImageIcon("");
+        imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
     }
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnDeleteResumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteResumeActionPerformed
         // TODO add your handling code here:
         int selectedrow = tblResumeList.getSelectedRow();
         if (selectedrow >= 0) {
@@ -719,29 +678,26 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Please select any row!");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnDeleteResumeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField affiliationTxtField;
-    private javax.swing.JRadioButton btnCountryIntl;
-    private javax.swing.JRadioButton btnCountryUsa;
-    private javax.swing.JRadioButton btnFemale;
-    private javax.swing.JRadioButton btnGradNo;
-    private javax.swing.JRadioButton btnGradYes;
-    private javax.swing.JRadioButton btnMale;
+    private javax.swing.JButton btnDeleteResume;
+    private javax.swing.JButton btnViewResume;
     private javax.swing.JTextArea carObjStatTxtField;
     private javax.swing.JTextField cityTxtField;
     private javax.swing.JTextField contactNumberTxtField;
+    private javax.swing.JTextField countryTxtField;
     private javax.swing.JTextField degree1DateTextField;
     private javax.swing.JTextField degree1TxtField;
     private javax.swing.JTextField degree2DateTextField;
     private javax.swing.JTextField degree2TxtField;
     private javax.swing.JTextField emailIdTxtField;
     private javax.swing.JTextField firstNameTxtField;
+    private javax.swing.JTextField genderTextField;
+    private javax.swing.JTextField graduationTxtField;
     private javax.swing.JLabel imgLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;

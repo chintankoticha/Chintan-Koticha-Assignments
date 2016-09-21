@@ -30,6 +30,17 @@ public class Resume {
     //private String softwareKnownledge;
     private String emailId;
     private long contactNumber;
+    
+    //Method for saving Image filepath 
+    public String filePath;
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 
     public String getFirstName() {
         return firstName;

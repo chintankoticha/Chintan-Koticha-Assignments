@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import sun.security.x509.X500Name;
 
 /**
  *
@@ -26,6 +25,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
      * Creates new form CreateResumeJPanel
      */
     private ResumeHistory rh;
+    String fileName;
     int flag = 0;
     int flag_gender=0;
     int flag_country=0;
@@ -649,6 +649,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
            resume.setDegree2(degreeGrad);
            resume.setDegree2Date(degreeGradDate);
         }
+        resume.setFilePath(fileName);
 
         JOptionPane.showMessageDialog(null, "Resume Added Successully");
         resetFields();  //to reset the entire form
@@ -665,7 +666,6 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         carObjStatTxtField.setText("");
         degree1TxtField.setText("");
         degree1DateTextField.setText("");
-        flag = 0;
         flag_gender=0;
         degree2TxtField.setVisible(false);
         degree2DateTextField.setVisible(false);
@@ -691,10 +691,10 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File f = chooseImage.getSelectedFile();
-            String fileName = f.getAbsolutePath();
+            fileName = f.getAbsolutePath();
             imagePathTxtField.setText(fileName);
             ImageIcon icon = new ImageIcon(fileName);
-            rh.setImagePath(fileName);
+            //rh.setImagePath(fileName);
             imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
         }
     }//GEN-LAST:event_browseImageBtnActionPerformed

@@ -40,16 +40,14 @@ public class ResumeHistory {
         resumeHistory.remove(r);
     }
 
-    //Method for saving Image filepath 
-    public String filePath;
-
-    public void setImagePath(String filePath) {
+   
+    /*public void setImagePath(String filePath) {
         this.filePath = filePath;
     }
 
     public String getImagePath() {
         return filePath;
-    }
+    }*/
     
     //Methods for Graduation field
     public void setFlagValue(int flag)
