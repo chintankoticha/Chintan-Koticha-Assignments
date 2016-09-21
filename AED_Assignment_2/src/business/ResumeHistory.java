@@ -14,6 +14,9 @@ import java.util.ArrayList;
 public class ResumeHistory {
 
     private ArrayList<Resume> resumeHistory;
+    int flag;
+    int gender_flag;
+    int country_flag;
 
     public ResumeHistory() {
         resumeHistory = new ArrayList<Resume>();
@@ -28,9 +31,9 @@ public class ResumeHistory {
     }
 
     public Resume addResume() {
-        Resume rs = new Resume();
-        resumeHistory.add(rs);
-        return rs;
+        Resume resume = new Resume();
+        resumeHistory.add(resume);
+        return resume;
     }
 
     public void deleteResume(Resume r) {
@@ -47,4 +50,38 @@ public class ResumeHistory {
     public String getImagePath() {
         return filePath;
     }
+    
+    //Methods for Graduation field
+    public void setFlagValue(int flag)
+    {
+        this.flag=flag;
+    }
+    
+    public int getFlagValue()
+    {
+        return flag;
+    }
+    
+    //Methods for Gender field
+    public void setGenderFlagValue(int flag)
+    {
+        this.gender_flag=flag;
+    }
+    
+    public int getGenderFlagValue()
+    {
+        return gender_flag;
+    }
+    
+    //Methods for Country field
+    public void setCountryFlagValue(int flag)
+    {
+        this.country_flag=flag;
+    }
+    
+    public int getCountryFlagValue()
+    {
+        return country_flag;
+    }
+    
 }

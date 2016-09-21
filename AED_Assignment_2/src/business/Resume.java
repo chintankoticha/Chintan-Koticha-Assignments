@@ -150,5 +150,11 @@ public class Resume {
     public void setContactNumber(long contactNumber) {
         this.contactNumber = contactNumber;
     }
+    
+    @Override
+    public String toString()
+    {
+     return this.firstName;
+    }
 
 }

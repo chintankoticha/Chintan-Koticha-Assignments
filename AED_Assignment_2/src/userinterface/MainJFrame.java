@@ -50,7 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        btnDisplay.setText("Display Resumes");
+        btnDisplay.setText("Display Resume");
         btnDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDisplayActionPerformed(evt);
