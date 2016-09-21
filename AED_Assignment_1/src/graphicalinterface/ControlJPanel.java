@@ -473,6 +473,7 @@ public class ControlJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
       JFileChooser chooseImage = new JFileChooser();
       FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG Images", "jpg");
+      chooseImage.setAcceptAllFileFilterUsed(false);
       chooseImage.setFileFilter(filter);
       int returnVal = chooseImage.showOpenDialog(null);
       
@@ -503,38 +504,37 @@ public class ControlJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_confirmCheckBoxItemStateChanged
 
     public boolean validateFields() {
-     if (! validateField( firstNameTxtField, "Please enter a first name"))
-     {
-      return false;
-     }
-     else if (! validateField( lastNameTxtField, "Please enter a last name"))
-      return false;
-     else if (! validateField( streetLn1TxtField, "Please enter an Street line1 address"))
-      return false;
-     else if (! validateField( cityTxtField, "Please enter city"))
-      return false;
-     else if (! validateField( countryTxtField, "Please enter country"))
-      return false;
-     else if (! validateField(affiliationTxtField, "Please enter an affiliation"))
-      return false;
-     else if (! validateFieldArea( carObjStatTxtField, "Please enter an Carrier Objective Statement"))
-      return false;
-     else if (! validateField( degree1TxtField, "Please enter degree1"))
-      return false;
-     else if (! validateField( degree1DateTextField, "Please enter an degree 1 completion date"))
-      return false;
-     else if (! validateField( totalExpTxtField, "Please enter total experience in Years"))
-      return false;
-     else if (! validateFieldArea( progKnowledgeTxtField, "Please enter programming languages known"))
-      return false;
-     else if (! validateFieldArea( softwareKnowledgeTxtField, "Please enter softwares worked on"))
-      return false;
-     else if (! validateField( emailIdTxtField, "Please enter emailId"))
-      return false;
-     else if (! validateField(contactNumberTxtField, "Please enter an contact number"))
-      return false;
-     else
-      return true;
+        if (!validateField(firstNameTxtField, "Please enter a first name")) {
+            return false;
+        } else if (!validateField(lastNameTxtField, "Please enter a last name")) {
+            return false;
+        } else if (!validateField(streetLn1TxtField, "Please enter an Street line1 address")) {
+            return false;
+        } else if (!validateField(cityTxtField, "Please enter city")) {
+            return false;
+        } else if (!validateField(countryTxtField, "Please enter country")) {
+            return false;
+        } else if (!validateField(affiliationTxtField, "Please enter an affiliation")) {
+            return false;
+        } else if (!validateFieldArea(carObjStatTxtField, "Please enter an Carrier Objective Statement")) {
+            return false;
+        } else if (!validateField(degree1TxtField, "Please enter degree1")) {
+            return false;
+        } else if (!validateField(degree1DateTextField, "Please enter an degree 1 completion date")) {
+            return false;
+        } else if (!validateField(totalExpTxtField, "Please enter total experience in Years")) {
+            return false;
+        } else if (!validateFieldArea(progKnowledgeTxtField, "Please enter programming languages known")) {
+            return false;
+        } else if (!validateFieldArea(softwareKnowledgeTxtField, "Please enter softwares worked on")) {
+            return false;
+        } else if (!validateField(emailIdTxtField, "Please enter emailId")) {
+            return false;
+        } else if (!validateField(contactNumberTxtField, "Please enter an contact number")) {
+            return false;
+        } else {
+            return true;
+        }
     }
     
     public boolean validateField( JTextField f, String errormsg )
