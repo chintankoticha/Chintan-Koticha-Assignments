@@ -737,11 +737,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="USA"/>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="btnCountryUsaStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="btnCountryIntl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="INTERNATIONAL"/>
               </Properties>
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="btnCountryIntlStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>

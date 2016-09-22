@@ -593,9 +593,11 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
             degree1TxtField.setText(resume.getDegree1());
             degree2DateTextField.setText(resume.getDegree2Date());
             String filePath=resume.getFilePath();
+            genderTextField.setText(resume.getGender());
+            countryTxtField.setText(resume.getGender());
             imgLabel.setIcon(new ImageIcon(new ImageIcon(filePath).getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
             
-            //For Gender
+            /*//For Gender
             if(rh.getGenderFlagValue()==1)
             {
                 genderTextField.setText("Male");
@@ -603,9 +605,9 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
             else
             {
                 genderTextField.setText("Female");
-            }
+            }*/
             
-            //For country
+            /*//For country
              if(rh.getCountryFlagValue()==1)
             {
                 countryTxtField.setText("USA");
@@ -613,7 +615,7 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
             else
             {
                 countryTxtField.setText("International");
-            }
+            }*/
              
             //For Graduation 
             if (rh.getFlagValue()== 1) {

@@ -15,8 +15,8 @@ public class ResumeHistory {
 
     private ArrayList<Resume> resumeHistory;
     int flag;
-    int gender_flag;
-    int country_flag;
+    //int gender_flag;
+    //int country_flag;
 
     public ResumeHistory() {
         resumeHistory = new ArrayList<Resume>();
@@ -40,7 +40,6 @@ public class ResumeHistory {
         resumeHistory.remove(r);
     }
 
-   
     /*public void setImagePath(String filePath) {
         this.filePath = filePath;
     }
@@ -60,7 +59,7 @@ public class ResumeHistory {
         return flag;
     }
     
-    //Methods for Gender field
+    /*//Methods for Gender field
     public void setGenderFlagValue(int flag)
     {
         this.gender_flag=flag;
@@ -69,9 +68,9 @@ public class ResumeHistory {
     public int getGenderFlagValue()
     {
         return gender_flag;
-    }
+    }*/
     
-    //Methods for Country field
+    /*//Methods for Country field
     public void setCountryFlagValue(int flag)
     {
         this.country_flag=flag;
@@ -80,6 +79,6 @@ public class ResumeHistory {
     public int getCountryFlagValue()
     {
         return country_flag;
-    }
+    }*/
     
 }

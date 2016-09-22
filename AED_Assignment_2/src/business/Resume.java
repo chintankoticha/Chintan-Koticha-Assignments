@@ -16,7 +16,6 @@ public class Resume {
     private String streetLn1;
     private String streetLn2;
     private String city;
-    private String country;
     private String affiliation;
     private String carrierObjectiveStatement;
     private String degree1;
@@ -33,6 +32,18 @@ public class Resume {
     
     //Method for saving Image filepath 
     public String filePath;
+    
+    //For radio Buttons
+    private String gender;
+    private String country;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public String getFilePath() {
         return filePath;

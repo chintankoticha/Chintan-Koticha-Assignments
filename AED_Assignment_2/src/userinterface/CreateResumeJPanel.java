@@ -26,11 +26,16 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
      */
     private ResumeHistory rh;
     String fileName;
+    String genderTemp;
+    String countryTemp;
     int flag = 0;
-    int flag_gender=0;
-    int flag_country=0;
+    //int flag_gender=0;
+    //int flag_country=0;
     String degreeGrad;
     String degreeGradDate;
+    ButtonGroup country=new ButtonGroup();
+    ButtonGroup gender = new ButtonGroup();
+    ButtonGroup graduation = new ButtonGroup();
 
     public CreateResumeJPanel(ResumeHistory rh) {
         initComponents();
@@ -262,8 +267,18 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         });
 
         btnCountryUsa.setText("USA");
+        btnCountryUsa.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnCountryUsaStateChanged(evt);
+            }
+        });
 
         btnCountryIntl.setText("INTERNATIONAL");
+        btnCountryIntl.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnCountryIntlStateChanged(evt);
+            }
+        });
 
         jLabel26.setText("HAVE YOU GRADUATED?");
 
@@ -604,32 +619,32 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         Long contactNumber = Long.parseLong(contactNumberTxtField.getText());
         
         //Radio Buttons code
-        ButtonGroup graduation = new ButtonGroup();
+        
         graduation.add(btnGradYes);
         graduation.add(btnGradYes);
-        ButtonGroup gender = new ButtonGroup();
+        
         gender.add(btnMale);
         gender.add(btnFemale);
-        ButtonGroup country=new ButtonGroup();
+        
         country.add(btnCountryUsa);
         country.add(btnCountryIntl);
+        
         if (flag == 1) {
             rh.setFlagValue(flag);
             degreeGrad = degree2TxtField.getText();
             degreeGradDate = degree2DateTextField.getText();
         }
-        if (flag_gender == 1){
+        /*if (flag_gender == 1){
             rh.setGenderFlagValue(1);
         }
         else
-            rh.setGenderFlagValue(0);
-        if(flag_country==1){
+            rh.setGenderFlagValue(0);*/
+        /*if(flag_country==1){
             rh.setCountryFlagValue(1);
         }
         else{
             rh.setCountryFlagValue(0);
-        }
-            
+        }*/            
         
         Resume resume = rh.addResume();
         resume.setFirstName(firstName);
@@ -650,6 +665,8 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
            resume.setDegree2Date(degreeGradDate);
         }
         resume.setFilePath(fileName);
+        resume.setGender(genderTemp);
+        resume.setCountry(countryTemp);
 
         JOptionPane.showMessageDialog(null, "Resume Added Successully");
         resetFields();  //to reset the entire form
@@ -666,7 +683,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         carObjStatTxtField.setText("");
         degree1TxtField.setText("");
         degree1DateTextField.setText("");
-        flag_gender=0;
+        //flag_gender=0;
         degree2TxtField.setVisible(false);
         degree2DateTextField.setVisible(false);
         lblDegreeGrad.setVisible(false);
@@ -676,9 +693,25 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         totalExpTxtField.setText("");
         emailIdTxtField.setText("");
         contactNumberTxtField.setText("");
+        
+        //Radio buttons reset
+        /*btnCountryIntl.setSelected(false);
+        btnCountryUsa.setSelected(false);
+        btnFemale.setSelected(false);
+        btnMale.setSelected(false);
+        btnGradYes.setSelected(false);
+        btnGradNo.setSelected(false);*/
+        gender.clearSelection();
+        country.clearSelection();
+        graduation.clearSelection();
+        
+        //Image reset
         imagePathTxtField.setText("");
         ImageIcon icon = new ImageIcon("");
-        imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));   
+        imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
+        
+        //confirm check box reset
+        confirmCheckBox.setSelected(false);
     }
     
     private void browseImageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseImageBtnActionPerformed
@@ -741,9 +774,11 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (btnMale.isSelected()) {
             btnFemale.setSelected(false);
-            flag_gender = 1;
+            //flag_gender = 1;
+            genderTemp="Male";
+            
         } else {
-            flag_gender = 0;
+            //flag_gender = 0;
         }
     }//GEN-LAST:event_btnMaleStateChanged
 
@@ -751,11 +786,36 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (btnFemale.isSelected()) {
             btnMale.setSelected(false);
-            flag_gender = 1;
+            //flag_gender = 1;
+            genderTemp="Female";
         } else {
-            flag_gender = 0;
+            //flag_gender = 0;
         }
     }//GEN-LAST:event_btnFemaleStateChanged
+
+    private void btnCountryUsaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnCountryUsaStateChanged
+        // TODO add your handling code here:
+            if (btnCountryUsa.isSelected()) {
+            btnCountryIntl.setSelected(false);
+            //flag_gender = 1;
+            countryTemp="USA";
+            
+        } else {
+            //flag_gender = 0;
+        }
+    }//GEN-LAST:event_btnCountryUsaStateChanged
+
+    private void btnCountryIntlStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnCountryIntlStateChanged
+        // TODO add your handling code here:
+            if (btnCountryIntl.isSelected()) {
+            btnCountryUsa.setSelected(false);
+            //flag_gender = 1;
+            countryTemp="International";
+            
+        } else {
+            //flag_gender = 0;
+        }
+    }//GEN-LAST:event_btnCountryIntlStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
