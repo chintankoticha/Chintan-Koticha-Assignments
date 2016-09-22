@@ -25,14 +25,30 @@ public class Resume {
 
     //Extra 5 of my choice
     private int totalExperience;
-    //private String programmingKnowledge;
-    //private String softwareKnownledge;
+    private String programmingKnowledge;
+    private String softwareKnownledge;
+
+    public String getProgrammingKnowledge() {
+        return programmingKnowledge;
+    }
+
+    public void setProgrammingKnowledge(String programmingKnowledge) {
+        this.programmingKnowledge = programmingKnowledge;
+    }
+
+    public String getSoftwareKnownledge() {
+        return softwareKnownledge;
+    }
+
+    public void setSoftwareKnownledge(String softwareKnownledge) {
+        this.softwareKnownledge = softwareKnownledge;
+    }
     private String emailId;
     private long contactNumber;
-    
+
     //Method for saving Image filepath 
     public String filePath;
-    
+
     //For radio Buttons
     private String gender;
     private String country;
@@ -172,11 +188,9 @@ public class Resume {
     public void setContactNumber(long contactNumber) {
         this.contactNumber = contactNumber;
     }
-    
-    @Override
-    public String toString()
-    {
-     return this.firstName;
-    }
 
+    @Override
+    public String toString() {
+        return this.firstName;
+    }
 }

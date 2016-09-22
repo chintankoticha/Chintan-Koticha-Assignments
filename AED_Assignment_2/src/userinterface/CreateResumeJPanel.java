@@ -25,6 +25,8 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
      * Creates new form CreateResumeJPanel
      */
     private ResumeHistory rh;
+    
+    //Radio buttons and image variables
     String fileName;
     String genderTemp;
     String countryTemp;
@@ -33,10 +35,31 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
     //int flag_country=0;
     String degreeGrad;
     String degreeGradDate;
-    ButtonGroup country=new ButtonGroup();
+    
+    ButtonGroup country = new ButtonGroup();
     ButtonGroup gender = new ButtonGroup();
     ButtonGroup graduation = new ButtonGroup();
 
+    //Variables for programming checkboxes
+    String prog1="";
+    String prog2="";
+    String prog3="";
+    String prog4="";
+    String prog5="";
+    String prog6="";
+    String prog7="";
+    String prog8="";
+    
+    //Variables for Softwares checkboxes
+    String soft1="";
+    String soft2="";
+    String soft3="";
+    String soft4="";
+    String soft5="";
+    String soft6="";
+    String soft7="";
+    String soft8="";
+    
     public CreateResumeJPanel(ResumeHistory rh) {
         initComponents();
         submitBtn.setVisible(false);
@@ -103,22 +126,22 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         imagePathTxtField = new javax.swing.JTextArea();
         confirmCheckBox = new javax.swing.JCheckBox();
         contactNumberTxtField = new javax.swing.JTextField();
-        btnProg2 = new javax.swing.JCheckBox();
-        btnProg3 = new javax.swing.JCheckBox();
-        btnProg1 = new javax.swing.JCheckBox();
-        btnProg4 = new javax.swing.JCheckBox();
-        btnProg5 = new javax.swing.JCheckBox();
-        btnProg6 = new javax.swing.JCheckBox();
-        btnProg7 = new javax.swing.JCheckBox();
-        btnProg8 = new javax.swing.JCheckBox();
-        btnSoftware1 = new javax.swing.JCheckBox();
-        btnSoftware2 = new javax.swing.JCheckBox();
-        btnSoftware3 = new javax.swing.JCheckBox();
-        btnSoftware4 = new javax.swing.JCheckBox();
-        btnSoftware5 = new javax.swing.JCheckBox();
-        btnSoftware6 = new javax.swing.JCheckBox();
-        btnSoftware7 = new javax.swing.JCheckBox();
-        btnSoftware8 = new javax.swing.JCheckBox();
+        checkboxProg2 = new javax.swing.JCheckBox();
+        checkboxProg3 = new javax.swing.JCheckBox();
+        checkboxProg1 = new javax.swing.JCheckBox();
+        checkboxProg4 = new javax.swing.JCheckBox();
+        checkboxProg5 = new javax.swing.JCheckBox();
+        checkboxProg6 = new javax.swing.JCheckBox();
+        checkboxProg7 = new javax.swing.JCheckBox();
+        checkboxProg8 = new javax.swing.JCheckBox();
+        checkboxSoft1 = new javax.swing.JCheckBox();
+        checkboxSoft2 = new javax.swing.JCheckBox();
+        checkboxSoft3 = new javax.swing.JCheckBox();
+        checkboxSoft4 = new javax.swing.JCheckBox();
+        checkboxSoft5 = new javax.swing.JCheckBox();
+        checkboxSoft6 = new javax.swing.JCheckBox();
+        checkboxSoft7 = new javax.swing.JCheckBox();
+        checkboxSoft8 = new javax.swing.JCheckBox();
         jLabel25 = new javax.swing.JLabel();
         btnMale = new javax.swing.JRadioButton();
         btnFemale = new javax.swing.JRadioButton();
@@ -218,37 +241,117 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnProg2.setText(".NET");
+        checkboxProg2.setText(".NET");
+        checkboxProg2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg2ItemStateChanged(evt);
+            }
+        });
 
-        btnProg3.setText("JAVASCRIPT");
+        checkboxProg3.setText("JAVASCRIPT");
+        checkboxProg3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg3ItemStateChanged(evt);
+            }
+        });
 
-        btnProg1.setText("CORE JAVA");
+        checkboxProg1.setText("CORE JAVA");
+        checkboxProg1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg1ItemStateChanged(evt);
+            }
+        });
 
-        btnProg4.setText("C#");
+        checkboxProg4.setText("C#");
+        checkboxProg4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg4ItemStateChanged(evt);
+            }
+        });
 
-        btnProg5.setText("C/C++");
+        checkboxProg5.setText("C/C++");
+        checkboxProg5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg5ItemStateChanged(evt);
+            }
+        });
 
-        btnProg6.setText("PYTHON");
+        checkboxProg6.setText("PYTHON");
+        checkboxProg6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg6ItemStateChanged(evt);
+            }
+        });
 
-        btnProg7.setText("SQL");
+        checkboxProg7.setText("SQL");
+        checkboxProg7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg7ItemStateChanged(evt);
+            }
+        });
 
-        btnProg8.setText("RUBY\\RAILS");
+        checkboxProg8.setText("RUBY\\RAILS");
+        checkboxProg8.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxProg8ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware1.setText("VISUAL STUDIO");
+        checkboxSoft1.setText("VISUAL STUDIO");
+        checkboxSoft1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft1ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware2.setText("ECLIPSE");
+        checkboxSoft2.setText("ECLIPSE");
+        checkboxSoft2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft2ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware3.setText("NETBEANS");
+        checkboxSoft3.setText("NETBEANS");
+        checkboxSoft3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft3ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware4.setText("MATLAB");
+        checkboxSoft4.setText("MATLAB");
+        checkboxSoft4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft4ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware5.setText("ORACLE");
+        checkboxSoft5.setText("ORACLE");
+        checkboxSoft5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft5ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware6.setText("POSTGRE-SQL");
+        checkboxSoft6.setText("POSTGRE-SQL");
+        checkboxSoft6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft6ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware7.setText("Tortoise Git");
+        checkboxSoft7.setText("Tortoise Git");
+        checkboxSoft7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft7ItemStateChanged(evt);
+            }
+        });
 
-        btnSoftware8.setText("MS-OFFICE");
+        checkboxSoft8.setText("MS-OFFICE");
+        checkboxSoft8.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkboxSoft8ItemStateChanged(evt);
+            }
+        });
 
         jLabel25.setText("Gender:");
 
@@ -381,21 +484,21 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnSoftware5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(checkboxSoft5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSoftware6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(checkboxSoft6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnSoftware1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(checkboxSoft1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnSoftware2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(checkboxSoft2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnProg5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(checkboxProg5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, Short.MAX_VALUE)
-                                        .addComponent(btnProg6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(checkboxProg6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnProg1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(checkboxProg1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, Short.MAX_VALUE)
-                                        .addComponent(btnProg2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(checkboxProg2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnGradYes)
                                         .addGap(18, 18, 18)
@@ -405,18 +508,18 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                     .addComponent(totalExpTxtField))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnProg7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkboxProg7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnProg3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSoftware3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSoftware7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(checkboxProg3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(checkboxSoft3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(checkboxSoft7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnSoftware8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnSoftware4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnProg8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnProg4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(checkboxSoft8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(checkboxSoft4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(checkboxProg8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(checkboxProg4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblDegreeGradDate)
@@ -537,30 +640,29 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(btnProg2)
-                                                    .addComponent(btnProg3)
-                                                    .addComponent(btnProg1)
-                                                    .addComponent(btnProg4))
+                                                    .addComponent(checkboxProg2)
+                                                    .addComponent(checkboxProg3)
+                                                    .addComponent(checkboxProg1)
+                                                    .addComponent(checkboxProg4))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(btnProg5)
-                                                    .addComponent(btnProg6)
-                                                    .addComponent(btnProg7)
-                                                    .addComponent(btnProg8))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel21)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(btnSoftware1)
-                                                        .addComponent(btnSoftware2)
-                                                        .addComponent(btnSoftware3)
-                                                        .addComponent(btnSoftware4)))
+                                                    .addComponent(checkboxProg5)
+                                                    .addComponent(checkboxProg6)
+                                                    .addComponent(checkboxProg7)
+                                                    .addComponent(checkboxProg8))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(btnSoftware5)
-                                                    .addComponent(btnSoftware6)
-                                                    .addComponent(btnSoftware7)
-                                                    .addComponent(btnSoftware8)))
+                                                    .addComponent(checkboxSoft1)
+                                                    .addComponent(checkboxSoft2)
+                                                    .addComponent(checkboxSoft3)
+                                                    .addComponent(checkboxSoft4)
+                                                    .addComponent(jLabel21))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(checkboxSoft5)
+                                                    .addComponent(checkboxSoft6)
+                                                    .addComponent(checkboxSoft7)
+                                                    .addComponent(checkboxSoft8)))
                                             .addComponent(jLabel20)))
                                     .addComponent(jLabel19))
                                 .addGap(18, 18, Short.MAX_VALUE)
@@ -617,18 +719,17 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         int totalExperience = Integer.parseInt(totalExpTxtField.getText());
         String emailId = emailIdTxtField.getText();
         Long contactNumber = Long.parseLong(contactNumberTxtField.getText());
-        
+
         //Radio Buttons code
-        
         graduation.add(btnGradYes);
         graduation.add(btnGradYes);
-        
+
         gender.add(btnMale);
         gender.add(btnFemale);
-        
+
         country.add(btnCountryUsa);
         country.add(btnCountryIntl);
-        
+
         if (flag == 1) {
             rh.setFlagValue(flag);
             degreeGrad = degree2TxtField.getText();
@@ -639,13 +740,13 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         }
         else
             rh.setGenderFlagValue(0);*/
-        /*if(flag_country==1){
+ /*if(flag_country==1){
             rh.setCountryFlagValue(1);
         }
         else{
             rh.setCountryFlagValue(0);
-        }*/            
-        
+        }*/
+
         Resume resume = rh.addResume();
         resume.setFirstName(firstName);
         resume.setLastName(lastName);
@@ -659,21 +760,20 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         resume.setTotalExperience(totalExperience);
         resume.setEmailId(emailId);
         resume.setContactNumber(contactNumber);
-        if(flag==1)
-        {
-           resume.setDegree2(degreeGrad);
-           resume.setDegree2Date(degreeGradDate);
+        if (flag == 1) {
+            resume.setDegree2(degreeGrad);
+            resume.setDegree2Date(degreeGradDate);
         }
         resume.setFilePath(fileName);
         resume.setGender(genderTemp);
         resume.setCountry(countryTemp);
-
+        resume.setProgrammingKnowledge(progCheckboxString());
+        resume.setSoftwareKnownledge(softCheckboxString());
         JOptionPane.showMessageDialog(null, "Resume Added Successully");
         resetFields();  //to reset the entire form
     }//GEN-LAST:event_submitBtnActionPerformed
 
-    private void resetFields()
-    {
+    private void resetFields() {
         firstNameTxtField.setText("");
         lastNameTxtField.setText("");
         streetLn1TxtField.setText("");
@@ -693,7 +793,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         totalExpTxtField.setText("");
         emailIdTxtField.setText("");
         contactNumberTxtField.setText("");
-        
+
         //Radio buttons reset
         /*btnCountryIntl.setSelected(false);
         btnCountryUsa.setSelected(false);
@@ -704,16 +804,124 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         gender.clearSelection();
         country.clearSelection();
         graduation.clearSelection();
-        
+
         //Image reset
         imagePathTxtField.setText("");
         ImageIcon icon = new ImageIcon("");
         imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
-        
+
         //confirm check box reset
         confirmCheckBox.setSelected(false);
+        
+        //Programming Checkbox reset
+        checkboxProg1.setSelected(false);
+        checkboxProg2.setSelected(false);
+        checkboxProg3.setSelected(false);
+        checkboxProg4.setSelected(false);
+        checkboxProg5.setSelected(false);
+        checkboxProg6.setSelected(false);
+        checkboxProg7.setSelected(false);
+        checkboxProg8.setSelected(false);
+        
+        //Software Checkbox reset
+        checkboxSoft1.setSelected(false);
+        checkboxSoft2.setSelected(false);
+        checkboxSoft3.setSelected(false);
+        checkboxSoft4.setSelected(false);
+        checkboxSoft5.setSelected(false);
+        checkboxSoft6.setSelected(false);
+        checkboxSoft7.setSelected(false);
+        checkboxSoft8.setSelected(false);
     }
     
+    private String progCheckboxString(){
+        StringBuffer builder = new StringBuffer();
+        if(prog1!=""){
+        builder=builder.append(prog1);
+        }
+        
+        if(prog2!="")
+        {
+         builder.append(prog2);
+        }
+        
+        if(prog3!="")
+        {
+         builder.append(prog3);
+        }
+        
+        if(prog4!="")
+        {
+         builder.append(prog4);
+        }
+        
+        if(prog5!="")
+        {
+         builder.append(prog5);
+        }
+        
+        if(prog6!="")
+        {
+         builder.append(prog6);
+        }
+        
+        if(prog7!="")
+        {
+         builder.append(prog7);
+        }
+        
+        if(prog8!="")
+        {
+         builder.append(prog8);
+        }
+        builder=builder.deleteCharAt(0);
+        return builder.toString();
+    }
+    
+    private String softCheckboxString(){
+       StringBuffer builder_soft = new StringBuffer();
+        if(soft1!=""){
+        builder_soft=builder_soft.append(soft1);
+        }
+        
+        if(soft2!="")
+        {
+         builder_soft.append(soft2);
+        }
+        
+        if(soft3!="")
+        {
+         builder_soft.append(soft3);
+        }
+        
+        if(soft4!="")
+        {
+         builder_soft.append(soft4);
+        }
+        
+        if(soft5!="")
+        {
+         builder_soft.append(soft5);
+        }
+        
+        if(soft6!="")
+        {
+         builder_soft.append(soft6);
+        }
+        
+        if(soft7!="")
+        {
+         builder_soft.append(soft7);
+        }
+        
+        if(soft8!="")
+        {
+         builder_soft.append(soft8);
+        }
+        builder_soft=builder_soft.deleteCharAt(0);
+        return builder_soft.toString(); 
+    }
+
     private void browseImageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseImageBtnActionPerformed
         // TODO add your handling code here:
         JFileChooser chooseImage = new JFileChooser();
@@ -754,7 +962,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
     private void btnGradNoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnGradNoStateChanged
         // TODO add your handling code here:
         if (btnGradNo.isSelected()) {
-            flag=0;
+            flag = 0;
             btnGradYes.setSelected(false);
             lblDegreeGrad.setVisible(false);
             lblDegreeGradDate.setVisible(false);
@@ -762,7 +970,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             degree2DateTextField.setVisible(false);
         } else {
             flag = 0;
-           /* lblDegreeGrad.setVisible(false);
+            /* lblDegreeGrad.setVisible(false);
             lblDegreeGradDate.setVisible(false);
             degree2TxtField.setVisible(false);
             degree2DateTextField.setVisible(false);*/
@@ -775,8 +983,8 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         if (btnMale.isSelected()) {
             btnFemale.setSelected(false);
             //flag_gender = 1;
-            genderTemp="Male";
-            
+            genderTemp = "Male";
+
         } else {
             //flag_gender = 0;
         }
@@ -787,7 +995,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         if (btnFemale.isSelected()) {
             btnMale.setSelected(false);
             //flag_gender = 1;
-            genderTemp="Female";
+            genderTemp = "Female";
         } else {
             //flag_gender = 0;
         }
@@ -795,11 +1003,11 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
 
     private void btnCountryUsaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnCountryUsaStateChanged
         // TODO add your handling code here:
-            if (btnCountryUsa.isSelected()) {
+        if (btnCountryUsa.isSelected()) {
             btnCountryIntl.setSelected(false);
             //flag_gender = 1;
-            countryTemp="USA";
-            
+            countryTemp = "USA";
+
         } else {
             //flag_gender = 0;
         }
@@ -807,17 +1015,193 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
 
     private void btnCountryIntlStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnCountryIntlStateChanged
         // TODO add your handling code here:
-            if (btnCountryIntl.isSelected()) {
+        if (btnCountryIntl.isSelected()) {
             btnCountryUsa.setSelected(false);
             //flag_gender = 1;
-            countryTemp="International";
-            
+            countryTemp = "International";
+
         } else {
             //flag_gender = 0;
         }
     }//GEN-LAST:event_btnCountryIntlStateChanged
 
+    private void checkboxProg1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg1ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg1.isSelected())
+        {
+            prog1= ",CORE JAVA ";
+        }
+        else{
+            prog1="";
+        }
+    }//GEN-LAST:event_checkboxProg1ItemStateChanged
 
+    private void checkboxProg2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg2ItemStateChanged
+        // TODO add your handling code here:
+         if(checkboxProg2.isSelected())
+        {
+            prog2= ",.NET ";
+        }
+        else{
+            prog2="";
+        }
+    }//GEN-LAST:event_checkboxProg2ItemStateChanged
+
+    private void checkboxProg3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg3ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg3.isSelected())
+        {
+            prog3= ",JAVASCRIPT ";
+        }
+        else{
+            prog3="";
+        }
+    }//GEN-LAST:event_checkboxProg3ItemStateChanged
+
+    private void checkboxProg4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg4ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg4.isSelected())
+        {
+            prog4= ",C# ";
+        }
+        else{
+            prog4="";
+        }
+    }//GEN-LAST:event_checkboxProg4ItemStateChanged
+
+    private void checkboxProg5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg5ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg5.isSelected())
+        {
+            prog5= ",C/C++ ";
+        }
+        else{
+            prog5="";
+        }
+    }//GEN-LAST:event_checkboxProg5ItemStateChanged
+
+    private void checkboxProg6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg6ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg6.isSelected())
+        {
+            prog6= ",PYTHON ";
+        }
+        else{
+            prog6="";
+        }
+    }//GEN-LAST:event_checkboxProg6ItemStateChanged
+
+    private void checkboxProg7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg7ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg7.isSelected())
+        {
+            prog7= ",SQL ";
+        }
+        else{
+            prog7="";
+        }
+    }//GEN-LAST:event_checkboxProg7ItemStateChanged
+
+    private void checkboxProg8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg8ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxProg8.isSelected())
+        {
+            prog8= ",RUBY/RAILS ";
+        }
+        else{
+            prog8="";
+        }
+    }//GEN-LAST:event_checkboxProg8ItemStateChanged
+
+    private void checkboxSoft1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft1ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft1.isSelected())
+        {
+            soft1= ",VISUAL STUDIO ";
+        }
+        else{
+            soft1="";
+        }
+    }//GEN-LAST:event_checkboxSoft1ItemStateChanged
+
+    private void checkboxSoft2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft2ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft2.isSelected())
+        {
+            soft2= ",ECLIPSE ";
+        }
+        else{
+            soft2="";
+        }
+    }//GEN-LAST:event_checkboxSoft2ItemStateChanged
+
+    private void checkboxSoft3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft3ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft3.isSelected())
+        {
+            soft3= ",NETBEANS ";
+        }
+        else{
+            soft3="";
+        }
+    }//GEN-LAST:event_checkboxSoft3ItemStateChanged
+
+    private void checkboxSoft4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft4ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft4.isSelected())
+        {
+            soft4= ",MATLAB ";
+        }
+        else{
+            soft4="";
+        }
+    }//GEN-LAST:event_checkboxSoft4ItemStateChanged
+
+    private void checkboxSoft5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft5ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft5.isSelected())
+        {
+            soft5= ",ORACLE ";
+        }
+        else{
+            soft5="";
+        }
+    }//GEN-LAST:event_checkboxSoft5ItemStateChanged
+
+    private void checkboxSoft6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft6ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft6.isSelected())
+        {
+            soft6= ",POSTGRE-SQL ";
+        }
+        else{
+            soft6="";
+        }
+    }//GEN-LAST:event_checkboxSoft6ItemStateChanged
+
+    private void checkboxSoft7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft7ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft7.isSelected())
+        {
+            soft7= ",Tortoise Git ";
+        }
+        else{
+            soft7="";
+        }
+    }//GEN-LAST:event_checkboxSoft7ItemStateChanged
+
+    private void checkboxSoft8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft8ItemStateChanged
+        // TODO add your handling code here:
+        if(checkboxSoft8.isSelected())
+        {
+            soft8= ",MS-OFFICE ";
+        }
+        else{
+            soft8="";
+        }
+    }//GEN-LAST:event_checkboxSoft8ItemStateChanged
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField affiliationTxtField;
     private javax.swing.JButton browseImageBtn;
@@ -827,23 +1211,23 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnGradNo;
     private javax.swing.JRadioButton btnGradYes;
     private javax.swing.JRadioButton btnMale;
-    private javax.swing.JCheckBox btnProg1;
-    private javax.swing.JCheckBox btnProg2;
-    private javax.swing.JCheckBox btnProg3;
-    private javax.swing.JCheckBox btnProg4;
-    private javax.swing.JCheckBox btnProg5;
-    private javax.swing.JCheckBox btnProg6;
-    private javax.swing.JCheckBox btnProg7;
-    private javax.swing.JCheckBox btnProg8;
-    private javax.swing.JCheckBox btnSoftware1;
-    private javax.swing.JCheckBox btnSoftware2;
-    private javax.swing.JCheckBox btnSoftware3;
-    private javax.swing.JCheckBox btnSoftware4;
-    private javax.swing.JCheckBox btnSoftware5;
-    private javax.swing.JCheckBox btnSoftware6;
-    private javax.swing.JCheckBox btnSoftware7;
-    private javax.swing.JCheckBox btnSoftware8;
     private javax.swing.JTextArea carObjStatTxtField;
+    private javax.swing.JCheckBox checkboxProg1;
+    private javax.swing.JCheckBox checkboxProg2;
+    private javax.swing.JCheckBox checkboxProg3;
+    private javax.swing.JCheckBox checkboxProg4;
+    private javax.swing.JCheckBox checkboxProg5;
+    private javax.swing.JCheckBox checkboxProg6;
+    private javax.swing.JCheckBox checkboxProg7;
+    private javax.swing.JCheckBox checkboxProg8;
+    private javax.swing.JCheckBox checkboxSoft1;
+    private javax.swing.JCheckBox checkboxSoft2;
+    private javax.swing.JCheckBox checkboxSoft3;
+    private javax.swing.JCheckBox checkboxSoft4;
+    private javax.swing.JCheckBox checkboxSoft5;
+    private javax.swing.JCheckBox checkboxSoft6;
+    private javax.swing.JCheckBox checkboxSoft7;
+    private javax.swing.JCheckBox checkboxSoft8;
     private javax.swing.JTextField cityTxtField;
     private javax.swing.JCheckBox confirmCheckBox;
     private javax.swing.JTextField contactNumberTxtField;

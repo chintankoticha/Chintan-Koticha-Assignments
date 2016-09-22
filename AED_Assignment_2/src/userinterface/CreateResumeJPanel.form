@@ -11,7 +11,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,4,-9,0,0,5,-105"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,4,-3,0,0,5,-105"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -134,24 +134,24 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="btnSoftware5" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxSoft5" min="-2" pref="114" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="btnSoftware6" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxSoft6" min="-2" pref="114" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="btnSoftware1" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxSoft1" min="-2" pref="114" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="btnSoftware2" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxSoft2" min="-2" pref="114" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="btnProg5" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxProg5" min="-2" pref="114" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="32767" attributes="0"/>
-                                              <Component id="btnProg6" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxProg6" min="-2" pref="114" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="btnProg1" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxProg1" min="-2" pref="114" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="32767" attributes="0"/>
-                                              <Component id="btnProg2" min="-2" pref="114" max="-2" attributes="0"/>
+                                              <Component id="checkboxProg2" min="-2" pref="114" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="btnGradYes" linkSize="6" min="-2" max="-2" attributes="0"/>
@@ -164,19 +164,19 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnProg7" min="-2" pref="114" max="-2" attributes="0"/>
+                                          <Component id="checkboxProg7" min="-2" pref="114" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="btnProg3" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  <Component id="btnSoftware3" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  <Component id="btnSoftware7" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxProg3" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxSoft3" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxSoft7" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="btnSoftware8" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  <Component id="btnSoftware4" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  <Component id="btnProg8" min="-2" pref="114" max="-2" attributes="0"/>
-                                                  <Component id="btnProg4" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxSoft8" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxSoft4" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxProg8" min="-2" pref="114" max="-2" attributes="0"/>
+                                                  <Component id="checkboxProg4" min="-2" pref="114" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -329,34 +329,32 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="btnProg2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnProg3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnProg1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnProg4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg4" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="btnProg5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnProg6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnProg7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnProg8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                              <Component id="btnSoftware1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="btnSoftware2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="btnSoftware3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="btnSoftware4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
+                                                          <Component id="checkboxProg5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxProg8" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="btnSoftware5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnSoftware6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnSoftware7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="btnSoftware8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="3" attributes="0">
+                                                          <Component id="checkboxSoft5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="checkboxSoft8" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -632,85 +630,133 @@
             </Component>
             <Component class="javax.swing.JTextField" name="contactNumberTxtField">
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg2">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg2">
               <Properties>
                 <Property name="text" type="java.lang.String" value=".NET"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg2ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg3">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="JAVASCRIPT"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg3ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg1">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CORE JAVA"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg1ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg4">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C#"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg4ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg5">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C/C++"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg5ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg6">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="PYTHON"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg6ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg7">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SQL"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg7ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnProg8">
+            <Component class="javax.swing.JCheckBox" name="checkboxProg8">
               <Properties>
                 <Property name="text" type="java.lang.String" value="RUBY\u005cRAILS" containsInvalidXMLChars="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxProg8ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware1">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="VISUAL STUDIO"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft1ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware2">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ECLIPSE"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft2ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware3">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="NETBEANS"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft3ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware4">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MATLAB"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft4ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware5">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="ORACLE"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft5ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware6">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="POSTGRE-SQL"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft6ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware7">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tortoise Git"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft7ItemStateChanged"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="btnSoftware8">
+            <Component class="javax.swing.JCheckBox" name="checkboxSoft8">
               <Properties>
                 <Property name="text" type="java.lang.String" value="MS-OFFICE"/>
               </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkboxSoft8ItemStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel25">
               <Properties>

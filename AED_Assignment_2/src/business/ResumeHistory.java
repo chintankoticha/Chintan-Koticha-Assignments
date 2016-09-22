@@ -47,18 +47,15 @@ public class ResumeHistory {
     public String getImagePath() {
         return filePath;
     }*/
-    
     //Methods for Graduation field
-    public void setFlagValue(int flag)
-    {
-        this.flag=flag;
+    public void setFlagValue(int flag) {
+        this.flag = flag;
     }
-    
-    public int getFlagValue()
-    {
+
+    public int getFlagValue() {
         return flag;
     }
-    
+
     /*//Methods for Gender field
     public void setGenderFlagValue(int flag)
     {
@@ -69,8 +66,7 @@ public class ResumeHistory {
     {
         return gender_flag;
     }*/
-    
-    /*//Methods for Country field
+ /*//Methods for Country field
     public void setCountryFlagValue(int flag)
     {
         this.country_flag=flag;
@@ -80,5 +76,4 @@ public class ResumeHistory {
     {
         return country_flag;
     }*/
-    
 }
