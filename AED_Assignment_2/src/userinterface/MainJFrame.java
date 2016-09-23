@@ -62,32 +62,39 @@ public class MainJFrame extends javax.swing.JFrame {
         CreateJPanelLayout.setHorizontalGroup(
             CreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CreateJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCreate)
+                .addContainerGap())
+            .addGroup(CreateJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnDisplay)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        CreateJPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCreate, btnDisplay});
+
         CreateJPanelLayout.setVerticalGroup(
             CreateJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CreateJPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(90, 90, 90)
                 .addComponent(btnCreate)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(btnDisplay)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
+
+        CreateJPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCreate, btnDisplay});
 
         SplitJPane.setLeftComponent(CreateJPanel);
 
-        jLabel1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel1.setText("Create and Display of Resume");
 
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel2.setText("1. Click on create to create new resume");
 
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jLabel3.setText("2. Click on view to display previously created resume");
+        jLabel3.setText("2. Click on view to display all previously created resume");
 
         javax.swing.GroupLayout DisplayJPanelLayout = new javax.swing.GroupLayout(DisplayJPanel);
         DisplayJPanel.setLayout(DisplayJPanelLayout);
@@ -95,23 +102,25 @@ public class MainJFrame extends javax.swing.JFrame {
             DisplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DisplayJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DisplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(DisplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGroup(DisplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(DisplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel3)
+                        .addGroup(DisplayJPanelLayout.createSequentialGroup()
+                            .addGap(81, 81, 81)
+                            .addComponent(jLabel2))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DisplayJPanelLayout.setVerticalGroup(
             DisplayJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DisplayJPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(65, 65, 65)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel2)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         SplitJPane.setRightComponent(DisplayJPanel);
