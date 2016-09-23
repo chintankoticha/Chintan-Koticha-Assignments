@@ -25,49 +25,52 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
      * Creates new form CreateResumeJPanel
      */
     private ResumeHistory rh;
-    
+
     //Radio buttons and image variables
     String fileName;
     String genderTemp;
     String countryTemp;
-    int flag = 0;
-    //int flag_gender=0;
-    //int flag_country=0;
-    String degreeGrad;
-    String degreeGradDate;
+    String certificationTemp;
+    //int flag = 0;
     
+    /*String degreeGrad = "";
+    String degreeGradDate = "";*/
+
     ButtonGroup country = new ButtonGroup();
     ButtonGroup gender = new ButtonGroup();
     ButtonGroup graduation = new ButtonGroup();
 
     //Variables for programming checkboxes
-    String prog1="";
-    String prog2="";
-    String prog3="";
-    String prog4="";
-    String prog5="";
-    String prog6="";
-    String prog7="";
-    String prog8="";
-    
+    String prog1 = "";
+    String prog2 = "";
+    String prog3 = "";
+    String prog4 = "";
+    String prog5 = "";
+    String prog6 = "";
+    String prog7 = "";
+    String prog8 = "";
+
     //Variables for Softwares checkboxes
-    String soft1="";
-    String soft2="";
-    String soft3="";
-    String soft4="";
-    String soft5="";
-    String soft6="";
-    String soft7="";
-    String soft8="";
+    String soft1 = "";
+    String soft2 = "";
+    String soft3 = "";
+    String soft4 = "";
+    String soft5 = "";
+    String soft6 = "";
+    String soft7 = "";
+    String soft8 = "";
     
+    //Temp variable for validation
+    int tempValid=0;
+
     public CreateResumeJPanel(ResumeHistory rh) {
         initComponents();
         submitBtn.setVisible(false);
         this.rh = rh;
-        lblDegreeGrad.setVisible(false);
+        /*lblDegreeGrad.setVisible(false);
         lblDegreeGradDate.setVisible(false);
         degree2TxtField.setVisible(false);
-        degree2DateTextField.setVisible(false);
+        degree2DateTextField.setVisible(false);*/
     }
 
     /**
@@ -83,40 +86,40 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblFirstName = new javax.swing.JLabel();
         firstNameTxtField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblLastName = new javax.swing.JLabel();
         lastNameTxtField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblStreetLn1 = new javax.swing.JLabel();
         streetLn1TxtField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        lblStreetLn2 = new javax.swing.JLabel();
         streetLn2TxtField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        lblCity = new javax.swing.JLabel();
         cityTxtField = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        lblCountry = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblAffiliation = new javax.swing.JLabel();
         affiliationTxtField = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lblCarObjStatement = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        lblDegreeUndergrad = new javax.swing.JLabel();
         degree1TxtField = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        lblDegreeUndergradDate = new javax.swing.JLabel();
         degree1DateTextField = new javax.swing.JTextField();
         lblDegreeGrad = new javax.swing.JLabel();
         degree2TxtField = new javax.swing.JTextField();
         lblDegreeGradDate = new javax.swing.JLabel();
         degree2DateTextField = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblTotalExp = new javax.swing.JLabel();
         totalExpTxtField = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        lblProgLang = new javax.swing.JLabel();
+        lblSoftware = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        lblEmailId = new javax.swing.JLabel();
         emailIdTxtField = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
+        lblContactNumber = new javax.swing.JLabel();
         submitBtn = new javax.swing.JButton();
         browseImageBtn = new javax.swing.JButton();
         imgLabel = new javax.swing.JLabel();
@@ -142,12 +145,12 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         checkboxSoft6 = new javax.swing.JCheckBox();
         checkboxSoft7 = new javax.swing.JCheckBox();
         checkboxSoft8 = new javax.swing.JCheckBox();
-        jLabel25 = new javax.swing.JLabel();
+        lblGender = new javax.swing.JLabel();
         btnMale = new javax.swing.JRadioButton();
         btnFemale = new javax.swing.JRadioButton();
         btnCountryUsa = new javax.swing.JRadioButton();
         btnCountryIntl = new javax.swing.JRadioButton();
-        jLabel26 = new javax.swing.JLabel();
+        lblCertifications = new javax.swing.JLabel();
         btnGradYes = new javax.swing.JRadioButton();
         btnGradNo = new javax.swing.JRadioButton();
 
@@ -160,34 +163,34 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jLabel2.setText("NAME");
 
-        jLabel3.setText("First Name:");
+        lblFirstName.setText("First Name:");
 
-        jLabel4.setText("Last Name:");
+        lblLastName.setText("Last Name:");
 
         jLabel5.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jLabel5.setText("ADDRESS");
 
-        jLabel6.setText("Street Line 1:");
+        lblStreetLn1.setText("Street Line 1:");
 
-        jLabel7.setText("Street Line 2:");
+        lblStreetLn2.setText("Street Line 2:");
 
-        jLabel8.setText("City:");
+        lblCity.setText("City:");
 
-        jLabel9.setText("Country:");
+        lblCountry.setText("Country:");
 
         jLabel10.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jLabel10.setText("BRIEF SUMMARY");
 
-        jLabel11.setText("Affiliation:");
+        lblAffiliation.setText("Affiliation:");
 
-        jLabel12.setText("Carrier Objective Statement:");
+        lblCarObjStatement.setText("Carrier Objective Statement:");
 
         jLabel13.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jLabel13.setText("EDUCATION");
 
-        jLabel14.setText("Degree 1 (UNDERGRADUATE):");
+        lblDegreeUndergrad.setText("Degree 1 (UNDERGRADUATE):");
 
-        jLabel15.setText("Degree 1 Completion Date:");
+        lblDegreeUndergradDate.setText("Degree 1 Completion Date:");
 
         lblDegreeGrad.setText("Degree 2 (GRADUATE):");
 
@@ -196,18 +199,18 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         jLabel18.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jLabel18.setText("WORK EXPERIENCE");
 
-        jLabel19.setText("Total Experience (In Years):");
+        lblTotalExp.setText("Total Experience (In Years):");
 
-        jLabel20.setText("Programming Languages Known:");
+        lblProgLang.setText("Programming Languages Known:");
 
-        jLabel21.setText("Softwares Worked On:");
+        lblSoftware.setText("Softwares Worked On:");
 
         jLabel22.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
         jLabel22.setText("CONTACT DETAILS");
 
-        jLabel23.setText("Email-Id:");
+        lblEmailId.setText("Email-Id:");
 
-        jLabel24.setText("Contact Number:");
+        lblContactNumber.setText("Contact Number:");
 
         submitBtn.setText("Submit Response");
         submitBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -353,7 +356,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel25.setText("Gender:");
+        lblGender.setText("Gender:");
 
         btnMale.setText("MALE");
         btnMale.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -383,7 +386,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel26.setText("HAVE YOU GRADUATED?");
+        lblCertifications.setText("ANY CERTIFICATIONS TILL DATE?");
 
         btnGradYes.setText("YES");
         btnGradYes.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -415,28 +418,28 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblStreetLn2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(streetLn2TxtField))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblStreetLn1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGap(18, 18, 18)
                                             .addComponent(streetLn1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnMale, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnFemale, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(lastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
                                             .addComponent(firstNameTxtField)))
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -449,10 +452,10 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(lblCountry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -461,11 +464,11 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                                 .addComponent(btnCountryIntl, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(cityTxtField)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblAffiliation, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(affiliationTxtField))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblCarObjStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jScrollPane3)))
                                 .addGap(237, 237, 237)
@@ -475,11 +478,11 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblDegreeGrad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel19)
+                                        .addComponent(lblDegreeUndergrad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblSoftware, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblProgLang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblCertifications, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblTotalExp)
                                     .addComponent(jLabel18))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -523,7 +526,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(lblDegreeGradDate)
-                                            .addComponent(jLabel15))
+                                            .addComponent(lblDegreeUndergradDate))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(degree1DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -534,11 +537,11 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(confirmCheckBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(contactNumberTxtField))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(emailIdTxtField)))))))
                 .addContainerGap(625, Short.MAX_VALUE))
@@ -559,37 +562,37 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
+                            .addComponent(lblFirstName)
                             .addComponent(firstNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(lblLastName)
                             .addComponent(lastNameTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
+                            .addComponent(lblGender)
                             .addComponent(btnMale)
                             .addComponent(btnFemale))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                            .addComponent(lblStreetLn1)
                             .addComponent(streetLn1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
+                            .addComponent(lblStreetLn2)
                             .addComponent(streetLn2TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
+                            .addComponent(lblCity)
                             .addComponent(cityTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
+                            .addComponent(lblCountry)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnCountryUsa)
                                 .addComponent(btnCountryIntl))))
@@ -601,10 +604,10 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(affiliationTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(lblAffiliation))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
+                    .addComponent(lblCarObjStatement)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
@@ -613,12 +616,12 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(degree1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(degree1DateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel15))
-                    .addComponent(jLabel14))
+                        .addComponent(lblDegreeUndergradDate))
+                    .addComponent(lblDegreeUndergrad))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel26)
+                        .addComponent(lblCertifications)
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -656,15 +659,15 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                                                     .addComponent(checkboxSoft2)
                                                     .addComponent(checkboxSoft3)
                                                     .addComponent(checkboxSoft4)
-                                                    .addComponent(jLabel21))
+                                                    .addComponent(lblSoftware))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(checkboxSoft5)
                                                     .addComponent(checkboxSoft6)
                                                     .addComponent(checkboxSoft7)
                                                     .addComponent(checkboxSoft8)))
-                                            .addComponent(jLabel20)))
-                                    .addComponent(jLabel19))
+                                            .addComponent(lblProgLang)))
+                                    .addComponent(lblTotalExp))
                                 .addGap(18, 18, Short.MAX_VALUE)
                                 .addComponent(jLabel22))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -677,13 +680,13 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
                         .addGap(354, 354, 354)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
+                    .addComponent(lblEmailId)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(emailIdTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(contactNumberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24))))
+                            .addComponent(lblContactNumber))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(confirmCheckBox)
                 .addGap(26, 26, 26)
@@ -707,6 +710,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
+
         String firstName = firstNameTxtField.getText();
         String lastName = lastNameTxtField.getText();
         String streetLn1 = streetLn1TxtField.getText();
@@ -716,13 +720,11 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         String carObjStatement = carObjStatTxtField.getText();
         String degreeUndergrad = degree1TxtField.getText();
         String degreeUndergradDate = degree1DateTextField.getText();
-        int totalExperience = Integer.parseInt(totalExpTxtField.getText());
         String emailId = emailIdTxtField.getText();
-        Long contactNumber = Long.parseLong(contactNumberTxtField.getText());
-
+        
         //Radio Buttons code
         graduation.add(btnGradYes);
-        graduation.add(btnGradYes);
+        graduation.add(btnGradNo);
 
         gender.add(btnMale);
         gender.add(btnFemale);
@@ -730,24 +732,81 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         country.add(btnCountryUsa);
         country.add(btnCountryIntl);
 
-        if (flag == 1) {
-            rh.setFlagValue(flag);
-            degreeGrad = degree2TxtField.getText();
-            degreeGradDate = degree2DateTextField.getText();
+       // if (flag == 1) {
+         //   rh.setFlagValue(flag);
+        String degreeGrad = degree2TxtField.getText();
+        String degreeGradDate = degree2DateTextField.getText();
+        //} else {
+          //  rh.setFlagValue(flag);
+        //}
+
+        if (firstName.isEmpty() || firstName.startsWith(" ") || lastName.isEmpty() || lastName.startsWith(" ")
+                || streetLn1.isEmpty() || streetLn1.startsWith(" ") || city.isEmpty() || city.startsWith(" ")
+                || affiliation.isEmpty() || affiliation.startsWith(" ") || carObjStatement.isEmpty()
+                || carObjStatement.startsWith(" ") || degreeUndergrad.isEmpty() || degreeUndergrad.startsWith(" ")
+                || degreeUndergradDate.isEmpty() || degreeUndergradDate.startsWith(" ")
+                || degreeGrad.isEmpty() || degreeGrad.startsWith(" ")
+                || degreeGradDate.isEmpty() || degreeGradDate.startsWith(" ")
+                || (!(btnGradYes.isSelected() || btnGradNo.isSelected()))
+                || (!(btnMale.isSelected() || btnFemale.isSelected()))
+                || (!(btnCountryUsa.isSelected() || btnCountryIntl.isSelected()))) {
+            JOptionPane.showMessageDialog(this, "All fields are mandatory!!! (make sure you enter w/o spaces!)");
+            return;
         }
-        /*if (flag_gender == 1){
-            rh.setGenderFlagValue(1);
+              
+        //Validations for Total experience
+        int totalExperience=0;
+        Long contactNumber=Long.parseLong("0000000000");
+        String tempTotalExp;
+        tempTotalExp=totalExpTxtField.getText();
+        if(tempTotalExp.length()!=0)
+        {
+        try{
+              totalExperience = Integer.parseInt(totalExpTxtField.getText());
+              if(totalExperience>50 || totalExperience<0)
+              {
+                JOptionPane.showMessageDialog(this,"Total experience should be between 0 and 50");
+                return;
+              }
+           }
+        
+        catch(Exception e)
+        {
+           JOptionPane.showMessageDialog(this,"Total experience can contain only numbers!");
+        }
         }
         else
-            rh.setGenderFlagValue(0);*/
- /*if(flag_country==1){
-            rh.setCountryFlagValue(1);
+        {
+            JOptionPane.showMessageDialog(this, "Total experience cannot be empty!!");
+            return;
         }
-        else{
-            rh.setCountryFlagValue(0);
-        }*/
-
+        //Validations for Contact Number
+        String tempContactNumber;
+        tempContactNumber=contactNumberTxtField.getText();
+        if(tempContactNumber.length()!=0)
+        {
+        try{
+            int contactNumberLength=0;
+            contactNumber = Long.parseLong(contactNumberTxtField.getText());
+            contactNumberLength=contactNumber.toString().length();
+            if(contactNumber<0 || contactNumberLength!=10){
+            JOptionPane.showMessageDialog(this, "Contact number should be positive and of 10 digits!!");
+            return;
+            }
+           }
+        
+        catch(Exception e)
+        {
+           JOptionPane.showMessageDialog(this,"Contact Number should contain only numbers!");
+        }        
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Contact Number cannot be empty!!");
+            return;
+        }
         Resume resume = rh.addResume();
+        
         resume.setFirstName(firstName);
         resume.setLastName(lastName);
         resume.setStreetLn1(streetLn1);
@@ -760,17 +819,21 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         resume.setTotalExperience(totalExperience);
         resume.setEmailId(emailId);
         resume.setContactNumber(contactNumber);
-        if (flag == 1) {
-            resume.setDegree2(degreeGrad);
-            resume.setDegree2Date(degreeGradDate);
-        }
-        resume.setFilePath(fileName);
+        //if (flag == 1) {
+        resume.setDegree2(degreeGrad);
+        resume.setDegree2Date(degreeGradDate);
+        //} else {
+        //    resume.setDegree2("");
+        //    resume.setDegree2Date("");
+        //}
+        resume.setFilePath(fileName);//Path for Image
         resume.setGender(genderTemp);
         resume.setCountry(countryTemp);
         resume.setProgrammingKnowledge(progCheckboxString());
         resume.setSoftwareKnownledge(softCheckboxString());
         JOptionPane.showMessageDialog(null, "Resume Added Successully");
         resetFields();  //to reset the entire form
+    //}
     }//GEN-LAST:event_submitBtnActionPerformed
 
     private void resetFields() {
@@ -784,10 +847,10 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         degree1TxtField.setText("");
         degree1DateTextField.setText("");
         //flag_gender=0;
-        degree2TxtField.setVisible(false);
+        /*degree2TxtField.setVisible(false);
         degree2DateTextField.setVisible(false);
         lblDegreeGrad.setVisible(false);
-        lblDegreeGradDate.setVisible(false);
+        lblDegreeGradDate.setVisible(false);*/
         degree2TxtField.setText("");
         degree2DateTextField.setText("");
         totalExpTxtField.setText("");
@@ -795,12 +858,6 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         contactNumberTxtField.setText("");
 
         //Radio buttons reset
-        /*btnCountryIntl.setSelected(false);
-        btnCountryUsa.setSelected(false);
-        btnFemale.setSelected(false);
-        btnMale.setSelected(false);
-        btnGradYes.setSelected(false);
-        btnGradNo.setSelected(false);*/
         gender.clearSelection();
         country.clearSelection();
         graduation.clearSelection();
@@ -812,7 +869,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
 
         //confirm check box reset
         confirmCheckBox.setSelected(false);
-        
+
         //Programming Checkbox reset
         checkboxProg1.setSelected(false);
         checkboxProg2.setSelected(false);
@@ -822,7 +879,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         checkboxProg6.setSelected(false);
         checkboxProg7.setSelected(false);
         checkboxProg8.setSelected(false);
-        
+
         //Software Checkbox reset
         checkboxSoft1.setSelected(false);
         checkboxSoft2.setSelected(false);
@@ -833,93 +890,85 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         checkboxSoft7.setSelected(false);
         checkboxSoft8.setSelected(false);
     }
-    
-    private String progCheckboxString(){
+
+    private String progCheckboxString() {
         StringBuffer builder = new StringBuffer();
-        if(prog1!=""){
-        builder=builder.append(prog1);
+        if (prog1 != "") {
+            builder = builder.append(prog1);
         }
-        
-        if(prog2!="")
-        {
-         builder.append(prog2);
+
+        if (prog2 != "") {
+            builder.append(prog2);
         }
-        
-        if(prog3!="")
-        {
-         builder.append(prog3);
+
+        if (prog3 != "") {
+            builder.append(prog3);
         }
-        
-        if(prog4!="")
-        {
-         builder.append(prog4);
+
+        if (prog4 != "") {
+            builder.append(prog4);
         }
-        
-        if(prog5!="")
-        {
-         builder.append(prog5);
+
+        if (prog5 != "") {
+            builder.append(prog5);
         }
-        
-        if(prog6!="")
-        {
-         builder.append(prog6);
+
+        if (prog6 != "") {
+            builder.append(prog6);
         }
-        
-        if(prog7!="")
-        {
-         builder.append(prog7);
+
+        if (prog7 != "") {
+            builder.append(prog7);
         }
-        
-        if(prog8!="")
-        {
-         builder.append(prog8);
+
+        if (prog8 != "") {
+            builder.append(prog8);
         }
-        builder=builder.deleteCharAt(0);
+        int temp_builder=builder.length();
+        if(temp_builder>0){
+        builder = builder.deleteCharAt(0);
+        }
         return builder.toString();
     }
-    
-    private String softCheckboxString(){
-       StringBuffer builder_soft = new StringBuffer();
-        if(soft1!=""){
-        builder_soft=builder_soft.append(soft1);
+
+    private String softCheckboxString() {
+        StringBuffer builder_soft = new StringBuffer();
+        if (soft1 != "") {
+            builder_soft = builder_soft.append(soft1);
         }
-        
-        if(soft2!="")
-        {
-         builder_soft.append(soft2);
+
+        if (soft2 != "") {
+            builder_soft.append(soft2);
         }
-        
-        if(soft3!="")
-        {
-         builder_soft.append(soft3);
+
+        if (soft3 != "") {
+            builder_soft.append(soft3);
         }
-        
-        if(soft4!="")
-        {
-         builder_soft.append(soft4);
+
+        if (soft4 != "") {
+            builder_soft.append(soft4);
         }
-        
-        if(soft5!="")
-        {
-         builder_soft.append(soft5);
+
+        if (soft5 != "") {
+            builder_soft.append(soft5);
         }
-        
-        if(soft6!="")
-        {
-         builder_soft.append(soft6);
+
+        if (soft6 != "") {
+            builder_soft.append(soft6);
         }
-        
-        if(soft7!="")
-        {
-         builder_soft.append(soft7);
+
+        if (soft7 != "") {
+            builder_soft.append(soft7);
         }
-        
-        if(soft8!="")
-        {
-         builder_soft.append(soft8);
+
+        if (soft8 != "") {
+            builder_soft.append(soft8);
         }
-        builder_soft=builder_soft.deleteCharAt(0);
-        return builder_soft.toString(); 
+        int temp_builder_soft=builder_soft.length();
+        if(temp_builder_soft>0){
+        builder_soft = builder_soft.deleteCharAt(0);
+        }
+        return builder_soft.toString();
     }
 
     private void browseImageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseImageBtnActionPerformed
@@ -935,7 +984,6 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             fileName = f.getAbsolutePath();
             imagePathTxtField.setText(fileName);
             ImageIcon icon = new ImageIcon(fileName);
-            //rh.setImagePath(fileName);
             imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
         }
     }//GEN-LAST:event_browseImageBtnActionPerformed
@@ -944,17 +992,18 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (btnGradYes.isSelected()) {
             btnGradNo.setSelected(false);
-            lblDegreeGrad.setVisible(true);
+            certificationTemp="YES";
+            /*lblDegreeGrad.setVisible(true);
             lblDegreeGradDate.setVisible(true);
             degree2TxtField.setVisible(true);
-            degree2DateTextField.setVisible(true);
-            flag = 1;
+            degree2DateTextField.setVisible(true);*/
+           // flag = 1;
         } else {
-            flag = 0;
+            /*flag = 0;
             lblDegreeGrad.setVisible(false);
             lblDegreeGradDate.setVisible(false);
             degree2TxtField.setVisible(false);
-            degree2DateTextField.setVisible(false);
+            degree2DateTextField.setVisible(false);*/
         }
 
     }//GEN-LAST:event_btnGradYesStateChanged
@@ -962,14 +1011,15 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
     private void btnGradNoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnGradNoStateChanged
         // TODO add your handling code here:
         if (btnGradNo.isSelected()) {
-            flag = 0;
-            btnGradYes.setSelected(false);
-            lblDegreeGrad.setVisible(false);
+            //flag = 0;
+           btnGradYes.setSelected(false);
+           certificationTemp="NO";
+           /* lblDegreeGrad.setVisible(false);
             lblDegreeGradDate.setVisible(false);
             degree2TxtField.setVisible(false);
-            degree2DateTextField.setVisible(false);
+            degree2DateTextField.setVisible(false);*/
         } else {
-            flag = 0;
+            //flag = 0;
             /* lblDegreeGrad.setVisible(false);
             lblDegreeGradDate.setVisible(false);
             degree2TxtField.setVisible(false);
@@ -1027,181 +1077,149 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
 
     private void checkboxProg1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg1ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg1.isSelected())
-        {
-            prog1= ",CORE JAVA ";
-        }
-        else{
-            prog1="";
+        if (checkboxProg1.isSelected()) {
+            prog1 = ",CORE JAVA ";
+        } else {
+            prog1 = "";
         }
     }//GEN-LAST:event_checkboxProg1ItemStateChanged
 
     private void checkboxProg2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg2ItemStateChanged
         // TODO add your handling code here:
-         if(checkboxProg2.isSelected())
-        {
-            prog2= ",.NET ";
-        }
-        else{
-            prog2="";
+        if (checkboxProg2.isSelected()) {
+            prog2 = ",.NET ";
+        } else {
+            prog2 = "";
         }
     }//GEN-LAST:event_checkboxProg2ItemStateChanged
 
     private void checkboxProg3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg3ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg3.isSelected())
-        {
-            prog3= ",JAVASCRIPT ";
-        }
-        else{
-            prog3="";
+        if (checkboxProg3.isSelected()) {
+            prog3 = ",JAVASCRIPT ";
+        } else {
+            prog3 = "";
         }
     }//GEN-LAST:event_checkboxProg3ItemStateChanged
 
     private void checkboxProg4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg4ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg4.isSelected())
-        {
-            prog4= ",C# ";
-        }
-        else{
-            prog4="";
+        if (checkboxProg4.isSelected()) {
+            prog4 = ",C# ";
+        } else {
+            prog4 = "";
         }
     }//GEN-LAST:event_checkboxProg4ItemStateChanged
 
     private void checkboxProg5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg5ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg5.isSelected())
-        {
-            prog5= ",C/C++ ";
-        }
-        else{
-            prog5="";
+        if (checkboxProg5.isSelected()) {
+            prog5 = ",C/C++ ";
+        } else {
+            prog5 = "";
         }
     }//GEN-LAST:event_checkboxProg5ItemStateChanged
 
     private void checkboxProg6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg6ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg6.isSelected())
-        {
-            prog6= ",PYTHON ";
-        }
-        else{
-            prog6="";
+        if (checkboxProg6.isSelected()) {
+            prog6 = ",PYTHON ";
+        } else {
+            prog6 = "";
         }
     }//GEN-LAST:event_checkboxProg6ItemStateChanged
 
     private void checkboxProg7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg7ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg7.isSelected())
-        {
-            prog7= ",SQL ";
-        }
-        else{
-            prog7="";
+        if (checkboxProg7.isSelected()) {
+            prog7 = ",SQL ";
+        } else {
+            prog7 = "";
         }
     }//GEN-LAST:event_checkboxProg7ItemStateChanged
 
     private void checkboxProg8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxProg8ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxProg8.isSelected())
-        {
-            prog8= ",RUBY/RAILS ";
-        }
-        else{
-            prog8="";
+        if (checkboxProg8.isSelected()) {
+            prog8 = ",RUBY/RAILS ";
+        } else {
+            prog8 = "";
         }
     }//GEN-LAST:event_checkboxProg8ItemStateChanged
 
     private void checkboxSoft1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft1ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft1.isSelected())
-        {
-            soft1= ",VISUAL STUDIO ";
-        }
-        else{
-            soft1="";
+        if (checkboxSoft1.isSelected()) {
+            soft1 = ",VISUAL STUDIO ";
+        } else {
+            soft1 = "";
         }
     }//GEN-LAST:event_checkboxSoft1ItemStateChanged
 
     private void checkboxSoft2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft2ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft2.isSelected())
-        {
-            soft2= ",ECLIPSE ";
-        }
-        else{
-            soft2="";
+        if (checkboxSoft2.isSelected()) {
+            soft2 = ",ECLIPSE ";
+        } else {
+            soft2 = "";
         }
     }//GEN-LAST:event_checkboxSoft2ItemStateChanged
 
     private void checkboxSoft3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft3ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft3.isSelected())
-        {
-            soft3= ",NETBEANS ";
-        }
-        else{
-            soft3="";
+        if (checkboxSoft3.isSelected()) {
+            soft3 = ",NETBEANS ";
+        } else {
+            soft3 = "";
         }
     }//GEN-LAST:event_checkboxSoft3ItemStateChanged
 
     private void checkboxSoft4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft4ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft4.isSelected())
-        {
-            soft4= ",MATLAB ";
-        }
-        else{
-            soft4="";
+        if (checkboxSoft4.isSelected()) {
+            soft4 = ",MATLAB ";
+        } else {
+            soft4 = "";
         }
     }//GEN-LAST:event_checkboxSoft4ItemStateChanged
 
     private void checkboxSoft5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft5ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft5.isSelected())
-        {
-            soft5= ",ORACLE ";
-        }
-        else{
-            soft5="";
+        if (checkboxSoft5.isSelected()) {
+            soft5 = ",ORACLE ";
+        } else {
+            soft5 = "";
         }
     }//GEN-LAST:event_checkboxSoft5ItemStateChanged
 
     private void checkboxSoft6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft6ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft6.isSelected())
-        {
-            soft6= ",POSTGRE-SQL ";
-        }
-        else{
-            soft6="";
+        if (checkboxSoft6.isSelected()) {
+            soft6 = ",POSTGRE-SQL ";
+        } else {
+            soft6 = "";
         }
     }//GEN-LAST:event_checkboxSoft6ItemStateChanged
 
     private void checkboxSoft7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft7ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft7.isSelected())
-        {
-            soft7= ",Tortoise Git ";
-        }
-        else{
-            soft7="";
+        if (checkboxSoft7.isSelected()) {
+            soft7 = ",Tortoise Git ";
+        } else {
+            soft7 = "";
         }
     }//GEN-LAST:event_checkboxSoft7ItemStateChanged
 
     private void checkboxSoft8ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkboxSoft8ItemStateChanged
         // TODO add your handling code here:
-        if(checkboxSoft8.isSelected())
-        {
-            soft8= ",MS-OFFICE ";
-        }
-        else{
-            soft8="";
+        if (checkboxSoft8.isSelected()) {
+            soft8 = ",MS-OFFICE ";
+        } else {
+            soft8 = "";
         }
     }//GEN-LAST:event_checkboxSoft8ItemStateChanged
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField affiliationTxtField;
     private javax.swing.JButton browseImageBtn;
@@ -1241,35 +1259,35 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel imgLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField lastNameTxtField;
+    private javax.swing.JLabel lblAffiliation;
+    private javax.swing.JLabel lblCarObjStatement;
+    private javax.swing.JLabel lblCertifications;
+    private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblContactNumber;
+    private javax.swing.JLabel lblCountry;
     private javax.swing.JLabel lblDegreeGrad;
     private javax.swing.JLabel lblDegreeGradDate;
+    private javax.swing.JLabel lblDegreeUndergrad;
+    private javax.swing.JLabel lblDegreeUndergradDate;
+    private javax.swing.JLabel lblEmailId;
+    private javax.swing.JLabel lblFirstName;
+    private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblProgLang;
+    private javax.swing.JLabel lblSoftware;
+    private javax.swing.JLabel lblStreetLn1;
+    private javax.swing.JLabel lblStreetLn2;
+    private javax.swing.JLabel lblTotalExp;
     private javax.swing.JTextField streetLn1TxtField;
     private javax.swing.JTextField streetLn2TxtField;
     private javax.swing.JButton submitBtn;

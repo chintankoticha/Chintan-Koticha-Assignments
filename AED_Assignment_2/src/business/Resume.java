@@ -27,6 +27,15 @@ public class Resume {
     private int totalExperience;
     private String programmingKnowledge;
     private String softwareKnownledge;
+    private String certifications;
+
+    public String getCertifications() {
+        return certifications;
+    }
+
+    public void setCertifications(String certifications) {
+        this.certifications = certifications;
+    }
 
     public String getProgrammingKnowledge() {
         return programmingKnowledge;

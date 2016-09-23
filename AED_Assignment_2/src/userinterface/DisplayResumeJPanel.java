@@ -117,10 +117,12 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("First Name:");
 
+        firstNameTxtField.setEditable(false);
         firstNameTxtField.setEnabled(false);
 
         jLabel4.setText("Last Name:");
 
+        lastNameTxtField.setEditable(false);
         lastNameTxtField.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
@@ -128,14 +130,17 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel6.setText("Street Line 1:");
 
+        streetLn1TxtField.setEditable(false);
         streetLn1TxtField.setEnabled(false);
 
         jLabel7.setText("Street Line 2:");
 
+        streetLn2TxtField.setEditable(false);
         streetLn2TxtField.setEnabled(false);
 
         jLabel8.setText("City:");
 
+        cityTxtField.setEditable(false);
         cityTxtField.setEnabled(false);
 
         jLabel9.setText("Country:");
@@ -145,6 +150,7 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Affiliation:");
 
+        affiliationTxtField.setEditable(false);
         affiliationTxtField.setEnabled(false);
 
         jLabel12.setText("Carrier Objective Statement:");
@@ -154,18 +160,22 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel14.setText("Degree 1 (UNDERGRADUATE):");
 
+        degree1TxtField.setEditable(false);
         degree1TxtField.setEnabled(false);
 
         jLabel15.setText("Degree 1 Completion Date:");
 
+        degree1DateTextField.setEditable(false);
         degree1DateTextField.setEnabled(false);
 
         jLabel16.setText("Degree 2 (GRADUATE):");
 
+        degree2TxtField.setEditable(false);
         degree2TxtField.setEnabled(false);
 
         lblDegreeGradDate.setText("Degree 2 Completion Date:");
 
+        degree2DateTextField.setEditable(false);
         degree2DateTextField.setEnabled(false);
 
         jLabel18.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
@@ -173,6 +183,7 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel19.setText("Total Experience (In Years):");
 
+        totalExpTxtField.setEditable(false);
         totalExpTxtField.setEnabled(false);
 
         jLabel20.setText("Programming Languages Known:");
@@ -184,22 +195,25 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         jLabel23.setText("Email-Id:");
 
+        emailIdTxtField.setEditable(false);
         emailIdTxtField.setEnabled(false);
 
         jLabel24.setText("Contact Number:");
 
         carObjStatTxtField.setEditable(false);
+        carObjStatTxtField.setBackground(new java.awt.Color(240, 240, 240));
         carObjStatTxtField.setColumns(20);
         carObjStatTxtField.setLineWrap(true);
         carObjStatTxtField.setRows(5);
         carObjStatTxtField.setEnabled(false);
         jScrollPane3.setViewportView(carObjStatTxtField);
 
+        contactNumberTxtField.setEditable(false);
         contactNumberTxtField.setEnabled(false);
 
         jLabel25.setText("Gender:");
 
-        jLabel26.setText("HAVE YOU GRADUATED?");
+        jLabel26.setText("ANY CERTIFICATIONS TILL DATE?");
 
         tblResumeList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,15 +253,23 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
 
         graduationTxtField.setEditable(false);
 
+        genderTextField.setEditable(false);
         genderTextField.setEnabled(false);
 
+        countryTxtField.setEditable(false);
         countryTxtField.setEnabled(false);
 
+        progKnownTxtField.setEditable(false);
+        progKnownTxtField.setBackground(new java.awt.Color(240, 240, 240));
         progKnownTxtField.setColumns(20);
+        progKnownTxtField.setLineWrap(true);
         progKnownTxtField.setRows(5);
         jScrollPane4.setViewportView(progKnownTxtField);
 
+        softKnownTextField.setEditable(false);
+        softKnownTextField.setBackground(new java.awt.Color(240, 240, 240));
         softKnownTextField.setColumns(20);
+        softKnownTextField.setLineWrap(true);
         softKnownTextField.setRows(5);
         jScrollPane5.setViewportView(softKnownTextField);
 
@@ -494,48 +516,21 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
             affiliationTxtField.setText(resume.getAffiliation());
             carObjStatTxtField.setText(resume.getCarrierObjectiveStatement());
             degree1TxtField.setText(resume.getDegree1());
-            degree2DateTextField.setText(resume.getDegree2Date());
+            degree1DateTextField.setText(resume.getDegree1Date());
             String filePath = resume.getFilePath();
             genderTextField.setText(resume.getGender());
             countryTxtField.setText(resume.getCountry());
             imgLabel.setIcon(new ImageIcon(new ImageIcon(filePath).getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
+
+            //For radio Buttons to Text Fields
             progKnownTxtField.setText(resume.getProgrammingKnowledge());
             softKnownTextField.setText(resume.getSoftwareKnownledge());
-            /*//For Gender
-            if(rh.getGenderFlagValue()==1)
-            {
-                genderTextField.setText("Male");
-            }
-            else
-            {
-                genderTextField.setText("Female");
-            }*/
-            
-            /*//For country
-             if(rh.getCountryFlagValue()==1)
-            {
-                countryTxtField.setText("USA");
-            }
-            else
-            {
-                countryTxtField.setText("International");
-            }*/
+
             //For Graduation 
-            if (rh.getFlagValue() == 1) {
-                graduationTxtField.setText("Yes");
-                lblDegreeGrad.setVisible(true);
-                lblDegreeGradDate.setVisible(true);
-                degree2TxtField.setVisible(true);
-                degree2DateTextField.setVisible(true);
-                degree2TxtField.setText(resume.getDegree2());
-                degree2DateTextField.setText(resume.getDegree2Date());
-            } else {
-                graduationTxtField.setText("No");
-                lblDegreeGrad.setVisible(false);
-                lblDegreeGradDate.setVisible(false);
-                degree2TxtField.setVisible(false);
-                degree2DateTextField.setVisible(false);
-            }
+            graduationTxtField.setText("Yes");
+            degree2TxtField.setText(resume.getDegree2());
+            degree2DateTextField.setText(resume.getDegree2Date());
+
             totalExpTxtField.setText(String.valueOf(resume.getTotalExperience()));
             emailIdTxtField.setText(resume.getEmailId());
             contactNumberTxtField.setText(String.valueOf(resume.getContactNumber()));
@@ -558,17 +553,16 @@ public class DisplayResumeJPanel extends javax.swing.JPanel {
         degree2DateTextField.setText("");
         totalExpTxtField.setText("");
         emailIdTxtField.setText("");
-        /*degree2TxtField.setVisible(false);
-        degree2DateTextField.setVisible(false);
-        lblDegreeGrad.setVisible(false);
-        lblDegreeGradDate.setVisible(false);*/
         contactNumberTxtField.setText("");
         ImageIcon icon = new ImageIcon("");
         progKnownTxtField.setText("");
         softKnownTextField.setText("");
+        genderTextField.setText("");
+        countryTxtField.setText("");
+        graduationTxtField.setText("");
         imgLabel.setIcon(new ImageIcon(icon.getImage().getScaledInstance(160, 195, Image.SCALE_DEFAULT)));
     }
-    
+
     private void btnDeleteResumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteResumeActionPerformed
         // TODO add your handling code here:
         int selectedrow = tblResumeList.getSelectedRow();

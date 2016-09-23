@@ -324,6 +324,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="firstNameTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -334,6 +335,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="lastNameTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -352,6 +354,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="streetLn1TxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -362,6 +365,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="streetLn2TxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -372,6 +376,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="cityTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -395,6 +400,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="affiliationTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -418,6 +424,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="degree1TxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -428,6 +435,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="degree1DateTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -438,6 +446,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="degree2TxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -448,6 +457,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="degree2DateTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -466,6 +476,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="totalExpTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -494,6 +505,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="emailIdTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -514,6 +526,9 @@
                 <Component class="javax.swing.JTextArea" name="carObjStatTxtField">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f0" green="f0" red="f0" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
@@ -524,6 +539,7 @@
             </Container>
             <Component class="javax.swing.JTextField" name="contactNumberTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -534,7 +550,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
-                <Property name="text" type="java.lang.String" value="HAVE YOU GRADUATED?"/>
+                <Property name="text" type="java.lang.String" value="ANY CERTIFICATIONS TILL DATE?"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -610,11 +626,13 @@
             </Component>
             <Component class="javax.swing.JTextField" name="genderTextField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="countryTxtField">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
@@ -627,7 +645,12 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="progKnownTxtField">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f0" green="f0" red="f0" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
                 </Component>
@@ -642,7 +665,12 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="softKnownTextField">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="f0" green="f0" red="f0" type="rgb"/>
+                    </Property>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
                 </Component>
