@@ -760,7 +760,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             return;
         } else {
         }
-        
+
         //Validating dates
         String datePattern = "((0[1-9])|(1[0-2]))\\/(\\d{4})";
         Pattern patternDate = Pattern.compile(datePattern);
@@ -770,7 +770,7 @@ public class CreateResumeJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter date in given format!!");
             return;
         } else {
-        }       
+        }
 
         //Validations for Total experience
         int totalExperience = 0;
