@@ -7,6 +7,7 @@ package userinterface;
 
 import business.Account;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -158,9 +159,13 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+      userProcessContainer.remove(this);
+      Component[] componentArray = userProcessContainer.getComponents();
+      Component component = componentArray[componentArray.length - 1];
+      ManageAccountJPanel manageAccountJPanel = (ManageAccountJPanel) component;
+      manageAccountJPanel.populateTable();
+      CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+      layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -174,13 +179,23 @@ public class ViewAccountJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        account.setRoutingNumber(txtRoutingNumber.getText());
-        account.setAccountNumber(txtAccountNumber.getText());
-        account.setBankName(txtBankName.getText());
+        String routingNumber = txtRoutingNumber.getText();
+        String accountNumber = txtAccountNumber.getText();
+        String bankName = txtBankName.getText();
+                       
+        if(routingNumber.isEmpty()||routingNumber.startsWith(" ")||accountNumber.isEmpty()
+           ||accountNumber.startsWith(" ")||bankName.isEmpty()||bankName.startsWith(" ")){
+            JOptionPane.showMessageDialog(this,"All fields are mandatory and without spaces!!");
+            return;
+        }
+        
+        account.setRoutingNumber(routingNumber);
+        account.setAccountNumber(accountNumber);
+        account.setBankName(bankName);
         
         btnSave.setEnabled(false);
         btnUpdate.setEnabled(true);
-        JOptionPane.showMessageDialog(this, "Details updated Successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Details updated Successfully!!", "Information", JOptionPane.INFORMATION_MESSAGE);
         txtRoutingNumber.setEnabled(false);
         txtAccountNumber.setEnabled(false);
         txtBankName.setEnabled(false);

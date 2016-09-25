@@ -8,6 +8,8 @@ package userinterface;
 import business.Account;
 import business.AccountDirectory;
 import java.awt.CardLayout;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -150,6 +152,15 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
             return;
         }
         
+        /*String bankNamePattern = "[a-zA-Z ]+";
+        Pattern bankNamePattern = Pattern.compile(bankNamePattern);
+        Matcher matchFName = bankNamePattern.matcher(txtBankName.getText());
+        if (!matchFName.matches()) {
+            JOptionPane.showMessageDialog(this, "Please enter only alphabets in first name!!");
+            return;
+        } else {
+        }*/
+
         try{
             balance = Integer.parseInt(txtBalance.getText());
         }

@@ -192,7 +192,7 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void populateTable(){
+    public void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel)tblAccounts.getModel();
         dtm.setRowCount(0);
         for (Account account : ad.getAccountList()) {
