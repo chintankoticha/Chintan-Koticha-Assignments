@@ -19,4 +19,10 @@ public class VendorCatalog {
     public void setVendorName(String vendorName) {
         this.vendorName = vendorName;
     }
+    
+    @Override
+    public String toString(){
+        this.vendorName=vendorName;
+        return vendorName;
+    }
 }

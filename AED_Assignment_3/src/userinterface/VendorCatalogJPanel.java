@@ -6,6 +6,7 @@
 package userinterface;
 import business.ProductCatalog;
 import business.ProductCatalogDirectory;
+import business.VendorCatalogDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,21 +19,26 @@ import javax.swing.table.DefaultTableModel;
 public class VendorCatalogJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
+    private VendorCatalogDirectory vendorCatalogDirectory;
+    String vendorCatalogSelected;
     /**
      * Creates new form ManageCatalogJPanel
      */
-
-    public VendorCatalogJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory) {
+    public VendorCatalogJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory, String vendorCatalogSelected) {
        initComponents();
        this.userProcessContainer=userProcessContainer;
        this.productCatalogDirectory=productCatalogDirectory;
-       populateTable();
+       this.vendorCatalogDirectory=vendorCatalogDirectory;
+       this.vendorCatalogSelected=vendorCatalogSelected;
+       populateTable();  
     }
     
     public void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel)tblManageTable.getModel();
         dtm.setRowCount(0);
+        
         for (ProductCatalog productCatalog : productCatalogDirectory.getAccountList()) {
+           if(productCatalog.getVendorName().equals(vendorCatalogSelected)){
            Object[] row=new Object[6];
            row[0]=productCatalog;
            row[1]=productCatalog.getModelNumber();
@@ -42,6 +48,12 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
            row[5]=productCatalog.getFloorPrice();
            
            dtm.addRow(row);
+           }
+        }
+        
+        if(tblManageTable.getRowCount()==0)
+        {
+            JOptionPane.showMessageDialog(this, "No Products by this vendor as of now!!!");
         }
     }
 
@@ -188,7 +200,7 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateCatalogJPanel panel = new CreateCatalogJPanel(userProcessContainer, productCatalogDirectory);
+        CreateCatalogJPanel panel = new CreateCatalogJPanel(userProcessContainer, productCatalogDirectory,vendorCatalogSelected);
         userProcessContainer.add("CreateCatalogJPanel", panel);
         CardLayout layout= (CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -228,13 +240,18 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnResetListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetListActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnResetListActionPerformed
+
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         DefaultTableModel dtm = (DefaultTableModel) tblManageTable.getModel();
         dtm.setRowCount(0);
 
         for (ProductCatalog productCatalog : productCatalogDirectory.getAccountList()) {
-            
+
             if (productCatalog.getVendorName().equals(manageSearchTxtField.getText())) {
                 Object[] row = new Object[6];
                 row[0] = productCatalog;
@@ -243,21 +260,16 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
                 row[3] = productCatalog.getBasePrice();
                 row[4] = productCatalog.getCeilPrice();
                 row[5] = productCatalog.getFloorPrice();
-           
+
                 dtm.addRow(row);
             }
         }
-        
+
         if(tblManageTable.getRowCount()==0){
             JOptionPane.showMessageDialog(this, "No Entries Found!!(Press RESET to get entire result)");
         }
         manageSearchTxtField.setText("");
     }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void btnResetListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetListActionPerformed
-        // TODO add your handling code here:
-        populateTable();
-    }//GEN-LAST:event_btnResetListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

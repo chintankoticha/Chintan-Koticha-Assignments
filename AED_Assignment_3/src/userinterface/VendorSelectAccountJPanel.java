@@ -5,10 +5,14 @@
  */
 package userinterface;
 
+import business.ProductCatalog;
 import business.ProductCatalogDirectory;
+import business.VendorCatalog;
+import business.VendorCatalogDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,15 +21,29 @@ import javax.swing.JPanel;
 public class VendorSelectAccountJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
+    private VendorCatalogDirectory vendorCatalogDirectory;
+    
     /**
      * Creates new form ManagerAccountJPanel
      */
-    public VendorSelectAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory){
+    public VendorSelectAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.productCatalogDirectory=productCatalogDirectory;
+        this.vendorCatalogDirectory=vendorCatalogDirectory;
+        populateTable();
     }
-
+    
+    public void populateTable(){
+        DefaultTableModel dtm = (DefaultTableModel)tblVendorList.getModel();
+        dtm.setRowCount(0);
+        for (VendorCatalog vendorCatalog : vendorCatalogDirectory.getVendorsList()) {
+           Object[] row=new Object[1];
+           row[0]=vendorCatalog;
+           
+           dtm.addRow(row);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,10 +53,6 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblUsername = new javax.swing.JLabel();
-        usernameTxtField = new javax.swing.JTextField();
-        lblPassword = new javax.swing.JLabel();
-        passwordTxtField = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -47,21 +61,13 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblUsername.setText("USERNAME:");
-        add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 219, 91, -1));
-        add(usernameTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 216, 185, -1));
-
-        lblPassword.setText("PASSWORD:");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 254, 91, -1));
-        add(passwordTxtField, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 251, 185, -1));
-
         btnSubmit.setText("SUBMIT");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(119, 289, -1, -1));
+        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         btnBack.setText("< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -98,16 +104,18 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if((usernameTxtField.getText().toString().equals("manager")) && (passwordTxtField.getText().toString().equals("manager123"))){
-        VendorCatalogJPanel panel = new VendorCatalogJPanel(userProcessContainer, productCatalogDirectory);
-        userProcessContainer.add("ManageCatalogJPanel", panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-        usernameTxtField.setText("");
-        passwordTxtField.setText("");
+        int selectedRow = tblVendorList.getSelectedRow();
+        if(selectedRow>=0)
+        {
+            VendorCatalog vendorCatalog = (VendorCatalog)tblVendorList.getValueAt(selectedRow, 0);
+            String vendorCatalogSelected = vendorCatalog.toString();
+            VendorCatalogJPanel panel = new VendorCatalogJPanel(userProcessContainer,productCatalogDirectory,vendorCatalogDirectory,vendorCatalogSelected);
+            userProcessContainer.add("VendorCatalogJPanel",panel);
+            CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
         }
         else{
-            JOptionPane.showMessageDialog(this,"Invalid Credentials!!!" );
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -124,10 +132,6 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblUsername;
-    private javax.swing.JTextField passwordTxtField;
     private javax.swing.JTable tblVendorList;
-    private javax.swing.JTextField usernameTxtField;
     // End of variables declaration//GEN-END:variables
 }

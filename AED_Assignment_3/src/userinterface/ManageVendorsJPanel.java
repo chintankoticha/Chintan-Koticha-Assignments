@@ -5,19 +5,43 @@
  */
 package userinterface;
 
+import business.ProductCatalog;
+import business.ProductCatalogDirectory;
+import business.VendorCatalog;
+import business.VendorCatalogDirectory;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Chintan
  */
 public class ManageVendorsJPanel extends javax.swing.JPanel {
-
+    private JPanel userProcessContainer;
+    private ProductCatalogDirectory productCatalogDirectory;
+    private VendorCatalogDirectory vendorCatalogDirectory;
     /**
      * Creates new form ManageVendorsJPanel
      */
-    public ManageVendorsJPanel() {
+    public ManageVendorsJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.vendorCatalogDirectory=vendorCatalogDirectory;
+        populateTable();
     }
 
+    public void populateTable(){
+        DefaultTableModel dtm = (DefaultTableModel)tblVendorList.getModel();
+        dtm.setRowCount(0);
+        for (VendorCatalog vendorCatalog : vendorCatalogDirectory.getVendorsList()) {
+           Object[] row=new Object[1];
+           row[0]=vendorCatalog;
+                   
+           dtm.addRow(row);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,8 +53,8 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVendorList = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAddVendor = new javax.swing.JButton();
+        btnDeleteVendor = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -56,13 +80,28 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 88, 150));
 
-        jButton1.setText("Add Vendor");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        btnAddVendor.setText("Add Vendor");
+        btnAddVendor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddVendorActionPerformed(evt);
+            }
+        });
+        add(btnAddVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
-        jButton2.setText("Delete Vendor");
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+        btnDeleteVendor.setText("Delete Vendor");
+        btnDeleteVendor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteVendorActionPerformed(evt);
+            }
+        });
+        add(btnDeleteVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
 
         btnBack.setText("< BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -70,11 +109,44 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAddVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVendorActionPerformed
+        // TODO add your handling code here:
+        AddVendorJPanel panel = new AddVendorJPanel(userProcessContainer,vendorCatalogDirectory);
+        userProcessContainer.add("AddVendorJPanel",panel);
+        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddVendorActionPerformed
+
+    private void btnDeleteVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVendorActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblVendorList.getSelectedRow();
+        if(selectedRow>=0)
+        {
+         int dialogButton = JOptionPane.YES_NO_OPTION;
+         int dialogResult = JOptionPane.showConfirmDialog(this,"Are you sure you want to delete??","Warning", dialogButton);
+         if(dialogResult == JOptionPane.YES_OPTION){
+             VendorCatalog vendorCatalog = (VendorCatalog)tblVendorList.getValueAt(selectedRow, 0);
+             vendorCatalogDirectory.delete(vendorCatalog);
+             populateTable();
+         }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteVendorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddVendor;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnDeleteVendor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVendorList;

@@ -5,17 +5,29 @@
  */
 package userinterface;
 
+import business.VendorCatalog;
+import business.VendorCatalogDirectory;
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Chintan
  */
 public class AddVendorJPanel extends javax.swing.JPanel {
-
+    private JPanel userProcessContainer;
+    private VendorCatalogDirectory vendorCatalogDirectory;
     /**
      * Creates new form AddVendorJPanel
      */
-    public AddVendorJPanel() {
+    public AddVendorJPanel(JPanel userProcessContainer, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.vendorCatalogDirectory=vendorCatalogDirectory;   
     }
 
     /**
@@ -36,11 +48,21 @@ public class AddVendorJPanel extends javax.swing.JPanel {
         jLabel1.setText("Vendor Name:");
 
         btnSubmit.setText("SUBMIT");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Add a Vendor");
 
         btnBack.setText("< BACK");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,6 +100,42 @@ public class AddVendorJPanel extends javax.swing.JPanel {
                 .addContainerGap(149, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+      userProcessContainer.remove(this);
+      Component[] componentArray = userProcessContainer.getComponents();
+      Component component = componentArray[componentArray.length - 1];
+      ManageVendorsJPanel manageVendorsJPanel = (ManageVendorsJPanel) component;
+      manageVendorsJPanel.populateTable();
+      CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+      layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        String vendorName=txtVendorName.getText();
+        
+        if(vendorName.isEmpty()||vendorName.startsWith(" ")){
+            JOptionPane.showMessageDialog(this, "Vendor Name is mandatory!!!");
+            return;
+        }
+        
+        String VendorNamePattern = "[a-zA-Z ]+";
+        Pattern patternLName = Pattern.compile(VendorNamePattern);
+        Matcher matchLName = patternLName.matcher(txtVendorName.getText());
+        if (!matchLName.matches()) {
+            JOptionPane.showMessageDialog(this, "Please enter only alphabets in vendor's name!!");
+            return;
+        } else {
+        }
+        
+        VendorCatalog vendorCatalog = vendorCatalogDirectory.addVendorCatalog();
+
+        vendorCatalog.setVendorName(vendorName);
+        JOptionPane.showMessageDialog(this, "Vendor Name added successfully!!!");
+        txtVendorName.setText("");
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

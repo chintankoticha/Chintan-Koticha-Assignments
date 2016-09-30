@@ -22,14 +22,18 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
+    String vendorCatalogSelected;
 
     /**
      * Creates new form CreateCatalogJPanel
      */
-    public CreateCatalogJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory) {
+    public CreateCatalogJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, String vendorCatalogSelected) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.productCatalogDirectory = productCatalogDirectory;
+        this.vendorCatalogSelected=vendorCatalogSelected;
+        txtVendorName.setText(vendorCatalogSelected);
+        txtVendorName.setEditable(false);
     }
 
     /**
@@ -265,7 +269,6 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String productName = txtProductName.getText();
         String modelNumber = txtModelNumber.getText();
-        String vendorName = txtVendorName.getText();
         String features = txtFeatures.getText();
         String desc = txtDescription.getText();
         String basePriceTemp;
@@ -277,7 +280,6 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
 
         if (productName.isEmpty() || productName.startsWith(" ")
                 || modelNumber.isEmpty() || modelNumber.startsWith(" ")
-                || vendorName.isEmpty() || vendorName.startsWith(" ")
                 || desc.isEmpty() || desc.startsWith(" ")
                 || features.isEmpty() || features.startsWith(" ") /*||basePriceTemp.trim().isEmpty()||ceilPriceTemp.trim().isEmpty()
             ||floorPriceTemp.trim().isEmpty()*/) {
@@ -364,7 +366,7 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
 
         productCatalog.setProductName(productName);
         productCatalog.setModelNumber(modelNumber);
-        productCatalog.setVendorName(vendorName);
+        productCatalog.setVendorName(vendorCatalogSelected);
         productCatalog.setBasePrice(basePrice);
         productCatalog.setProductDescriptionStatement(desc);
         productCatalog.setCeilPrice(ceilPrice);
@@ -383,7 +385,6 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         txtFloorPrice.setText("");
         txtModelNumber.setText("");
         txtProductName.setText("");
-        txtVendorName.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void resetFields(){
@@ -394,7 +395,6 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         txtFloorPrice.setText("");
         txtModelNumber.setText("");
         txtProductName.setText("");
-        txtVendorName.setText("");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

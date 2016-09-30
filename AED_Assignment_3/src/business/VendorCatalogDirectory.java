@@ -26,7 +26,7 @@ public class VendorCatalogDirectory {
         this.vendorsList = vendorsList;
     } 
     
-    public VendorCatalog addProductCatalog(){
+    public VendorCatalog addVendorCatalog(){
         VendorCatalog vendorCatalog = new VendorCatalog();
         vendorsList.add(vendorCatalog);
         return vendorCatalog;

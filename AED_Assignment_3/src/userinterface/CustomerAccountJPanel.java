@@ -7,6 +7,7 @@ package userinterface;
 
 import business.ProductCatalog;
 import business.ProductCatalogDirectory;
+import business.VendorCatalogDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -27,6 +28,10 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
        this.userProcessContainer=userProcessContainer;
        this.productCatalogDirectory=productCatalogDirectory;
        populateTable();
+    }
+
+    CustomerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
