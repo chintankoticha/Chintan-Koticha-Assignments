@@ -115,7 +115,9 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         add(txtModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 164, 276, 27));
 
         txtFeatures.setEditable(false);
+        txtFeatures.setBackground(new java.awt.Color(240, 240, 240));
         txtFeatures.setColumns(20);
+        txtFeatures.setLineWrap(true);
         txtFeatures.setRows(5);
         txtFeatures.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtFeatures);
@@ -156,7 +158,9 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         add(lblCeilingPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 413, 131, 27));
 
         txtDescription.setEditable(false);
+        txtDescription.setBackground(new java.awt.Color(240, 240, 240));
         txtDescription.setColumns(20);
+        txtDescription.setLineWrap(true);
         txtDescription.setRows(5);
         txtDescription.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane2.setViewportView(txtDescription);

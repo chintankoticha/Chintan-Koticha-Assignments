@@ -129,6 +129,13 @@ public class AddVendorJPanel extends javax.swing.JPanel {
             return;
         } else {
         }
+
+        for (VendorCatalog vendorCatalog : vendorCatalogDirectory.getVendorsList()) {
+            if (txtVendorName.getText().equals(vendorCatalog.getVendorName())) {
+                JOptionPane.showMessageDialog(this, "Vendor Already exists!!!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
         
         VendorCatalog vendorCatalog = vendorCatalogDirectory.addVendorCatalog();
 

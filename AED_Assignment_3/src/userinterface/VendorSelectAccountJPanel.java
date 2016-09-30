@@ -58,8 +58,10 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVendorList = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel2 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
 
         btnSubmit.setText("SUBMIT");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +69,6 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
                 btnSubmitActionPerformed(evt);
             }
         });
-        add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         btnBack.setText("< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +76,6 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 349, -1, -1));
 
         tblVendorList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,24 +95,85 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblVendorList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 120, 154));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("VENDOR LIST");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel2.setText("USERNAME:");
+
+        jLabel3.setText("PASSWORD:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnBack)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSubmit)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtPassword))))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUsername)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword))))
+                .addGap(12, 12, 12)
+                .addComponent(btnSubmit)
+                .addGap(41, 41, 41)
+                .addComponent(btnBack)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblVendorList.getSelectedRow();
-        if(selectedRow>=0)
-        {
-            VendorCatalog vendorCatalog = (VendorCatalog)tblVendorList.getValueAt(selectedRow, 0);
+        if (selectedRow >= 0) {
+            VendorCatalog vendorCatalog = (VendorCatalog) tblVendorList.getValueAt(selectedRow, 0);
             String vendorCatalogSelected = vendorCatalog.toString();
-            VendorCatalogJPanel panel = new VendorCatalogJPanel(userProcessContainer,productCatalogDirectory,vendorCatalogDirectory,vendorCatalogSelected);
-            userProcessContainer.add("VendorCatalogJPanel",panel);
-            CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-            layout.next(userProcessContainer);
+            try {
+                char[] password = txtPassword.getPassword();
+                String passwordString = new String(password);
+                if (txtUsername.getText().equals(vendorCatalogSelected) && passwordString.equals(vendorCatalogSelected.concat("123"))){
+                    VendorCatalogJPanel panel = new VendorCatalogJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory, vendorCatalogSelected);
+                    userProcessContainer.add("VendorCatalogJPanel", panel);
+                    CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                    layout.next(userProcessContainer);
+                    txtPassword.setText("");
+                    txtUsername.setText("");
+                    tblVendorList.clearSelection();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid Credentials!!", "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Invalid Credentials!!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
         }
         else{
             JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
@@ -131,7 +192,11 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblVendorList;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

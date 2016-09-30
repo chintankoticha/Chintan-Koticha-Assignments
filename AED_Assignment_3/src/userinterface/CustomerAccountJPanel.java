@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CustomerAccountJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
-    private ProductCatalogDirectory productCatalogDirectory;
+    private ProductCatalogDirectory productCatalogDirectory; 
     /**
      * Creates new form CustomerAccountJPanel
      */
@@ -42,19 +42,27 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCustomerView = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnProductName = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        txtProductNameExact = new javax.swing.JTextField();
+        btnModelNumber = new javax.swing.JButton();
+        txtModelNameExact = new javax.swing.JTextField();
+        btnVendorName = new javax.swing.JButton();
+        txtVendorNameExact = new javax.swing.JTextField();
+        btnPriceLess = new javax.swing.JButton();
+        txtPriceLess = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtPriceMore = new javax.swing.JTextField();
+        btnPriceMore = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        lblKeyword = new javax.swing.JLabel();
+        txtProductNameKeyword = new javax.swing.JTextField();
+        txtModelNumberKeyword = new javax.swing.JTextField();
+        txtVendorNameKeyword = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblCustomerView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,14 +82,23 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCustomerView);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 54, 570, 169));
+
         btnBack.setText("< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 519, -1, -1));
 
-        jButton2.setText("Search(Product Name):");
+        btnProductName.setText("Search(Product Name):");
+        btnProductName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductNameActionPerformed(evt);
+            }
+        });
+        add(btnProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 314, 188, -1));
 
         btnViewDetails.setText("VIEW DETAILS");
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -89,101 +106,52 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
                 btnViewDetailsActionPerformed(evt);
             }
         });
+        add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 241, 188, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Product List");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 7, 170, -1));
 
-        jButton3.setText("Search(Model Number):");
+        txtProductNameExact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductNameExactActionPerformed(evt);
+            }
+        });
+        add(txtProductNameExact, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 314, 150, -1));
 
-        jButton4.setText("Search(Vendor Name):");
+        btnModelNumber.setText("Search(Model Number):");
+        add(btnModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 355, 188, -1));
+        add(txtModelNameExact, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 356, 150, -1));
 
-        jButton5.setText("Search(Price less than __):");
+        btnVendorName.setText("Search(Vendor Name):");
+        add(btnVendorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 396, 188, -1));
+        add(txtVendorNameExact, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 397, 150, -1));
+
+        btnPriceLess.setText("Search(Price less than __):");
+        add(btnPriceLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 437, 188, -1));
+        add(txtPriceLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 438, 150, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Search by starting Keywords or by exact words:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 242, -1, -1));
+        add(txtPriceMore, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 479, 150, -1));
 
-        jButton1.setText("Search(Price more than __):");
+        btnPriceMore.setText("Search(Price more than __):");
+        add(btnPriceMore, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 478, 188, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewDetails))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnBack)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
-                .addContainerGap(156, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Exact Words");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 282, -1, -1));
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnViewDetails, jButton1, jButton2, jButton3, jButton4, jButton5});
+        lblKeyword.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblKeyword.setText("Keywords");
+        add(lblKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 282, -1, -1));
+        add(txtProductNameKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 314, 150, -1));
+        add(txtModelNumberKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 356, 150, -1));
+        add(txtVendorNameKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 397, 150, -1));
 
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewDetails)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(btnBack)
-                .addGap(42, 42, 42))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnViewDetails, jButton2});
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton5});
-
+        jButton6.setText("RESET");
+        add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 54, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     public void populateTable(){
@@ -227,23 +195,39 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
+    private void txtProductNameExactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameExactActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtProductNameExactActionPerformed
+
+    private void btnProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductNameActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnProductNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnModelNumber;
+    private javax.swing.JButton btnPriceLess;
+    private javax.swing.JButton btnPriceMore;
+    private javax.swing.JButton btnProductName;
+    private javax.swing.JButton btnVendorName;
     private javax.swing.JButton btnViewDetails;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel lblKeyword;
     private javax.swing.JTable tblCustomerView;
+    private javax.swing.JTextField txtModelNameExact;
+    private javax.swing.JTextField txtModelNumberKeyword;
+    private javax.swing.JTextField txtPriceLess;
+    private javax.swing.JTextField txtPriceMore;
+    private javax.swing.JTextField txtProductNameExact;
+    private javax.swing.JTextField txtProductNameKeyword;
+    private javax.swing.JTextField txtVendorNameExact;
+    private javax.swing.JTextField txtVendorNameKeyword;
     // End of variables declaration//GEN-END:variables
 }
