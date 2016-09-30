@@ -25,6 +25,7 @@ public class ManagerAccountJPanel extends javax.swing.JPanel {
     public ManagerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
+        this.productCatalogDirectory=productCatalogDirectory;
         this.vendorCatalogDirectory=vendorCatalogDirectory;
     }
 

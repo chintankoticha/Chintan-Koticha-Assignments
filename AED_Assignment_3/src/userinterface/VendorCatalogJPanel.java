@@ -37,7 +37,7 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel)tblManageTable.getModel();
         dtm.setRowCount(0);
         
-        for (ProductCatalog productCatalog : productCatalogDirectory.getAccountList()) {
+        for (ProductCatalog productCatalog : productCatalogDirectory.getProductCatalogList()) {
            if(productCatalog.getVendorName().equals(vendorCatalogSelected)){
            Object[] row=new Object[6];
            row[0]=productCatalog;
@@ -68,14 +68,11 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblManageTable = new javax.swing.JTable();
-        btnSearch = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnCreate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        manageSearchTxtField = new javax.swing.JTextField();
-        btnResetList = new javax.swing.JButton();
 
         tblManageTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,13 +91,6 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblManageTable);
-
-        btnSearch.setText("Search(Vendor Name):");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
 
         btnViewDetails.setText("VIEW DETAILS");
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -133,39 +123,24 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
         jLabel1.setText("MANAGE YOUR CATALOG");
 
-        btnResetList.setText("Reset (all products list)");
-        btnResetList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetListActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(btnBack)
+                        .addGap(337, 337, 337)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnSearch)
-                                .addGap(18, 18, 18)
-                                .addComponent(manageSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67)
                                 .addComponent(btnViewDetails)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnDelete))
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(btnResetList)))
+                                .addComponent(btnDelete)))))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -175,14 +150,10 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(btnResetList)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearch)
                     .addComponent(btnViewDetails)
-                    .addComponent(btnDelete)
-                    .addComponent(manageSearchTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDelete))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
@@ -212,7 +183,7 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
         if(selectedRow>=0)
         {
             ProductCatalog productCatalog = (ProductCatalog)tblManageTable.getValueAt(selectedRow, 0);
-            ViewManagerDetailsJPanel panel = new ViewManagerDetailsJPanel(userProcessContainer,productCatalog);
+            ViewVendorDetailsJPanel panel = new ViewVendorDetailsJPanel(userProcessContainer,productCatalog);
             userProcessContainer.add("ViewManagerDetailsJPanel",panel);
             CardLayout layout= (CardLayout)userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -240,48 +211,14 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnResetListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetListActionPerformed
-        // TODO add your handling code here:
-        populateTable();
-    }//GEN-LAST:event_btnResetListActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel dtm = (DefaultTableModel) tblManageTable.getModel();
-        dtm.setRowCount(0);
-
-        for (ProductCatalog productCatalog : productCatalogDirectory.getAccountList()) {
-
-            if (productCatalog.getVendorName().equals(manageSearchTxtField.getText())) {
-                Object[] row = new Object[6];
-                row[0] = productCatalog;
-                row[1] = productCatalog.getModelNumber();
-                row[2] = productCatalog.getVendorName();
-                row[3] = productCatalog.getBasePrice();
-                row[4] = productCatalog.getCeilPrice();
-                row[5] = productCatalog.getFloorPrice();
-
-                dtm.addRow(row);
-            }
-        }
-
-        if(tblManageTable.getRowCount()==0){
-            JOptionPane.showMessageDialog(this, "No Entries Found!!(Press RESET to get entire result)");
-        }
-        manageSearchTxtField.setText("");
-    }//GEN-LAST:event_btnSearchActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnResetList;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField manageSearchTxtField;
     private javax.swing.JTable tblManageTable;
     // End of variables declaration//GEN-END:variables
 }

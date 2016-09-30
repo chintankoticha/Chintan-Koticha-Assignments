@@ -17,11 +17,11 @@ public class ProductCatalogDirectory {
        this.productsList = new ArrayList<ProductCatalog>();
     }
 
-    public ArrayList<ProductCatalog> getAccountList() {
+    public ArrayList<ProductCatalog> getProductCatalogList() {
         return productsList;
     }
 
-    public void setAccountList(ArrayList<ProductCatalog> productsList) {
+    public void setProductCatalogList(ArrayList<ProductCatalog> productsList) {
         this.productsList = productsList;
     } 
     

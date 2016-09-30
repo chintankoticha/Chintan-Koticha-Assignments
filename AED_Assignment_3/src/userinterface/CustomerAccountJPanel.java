@@ -23,15 +23,11 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CustomerAccountJPanel
      */
-    public CustomerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory) {
+    public CustomerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
        initComponents();
        this.userProcessContainer=userProcessContainer;
        this.productCatalogDirectory=productCatalogDirectory;
-       populateTable();
-    }
-
-    CustomerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       populateTable();  
     }
 
     /**
@@ -193,7 +189,7 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
     public void populateTable(){
         DefaultTableModel dtm = (DefaultTableModel)tblCustomerView.getModel();
         dtm.setRowCount(0);
-        for (ProductCatalog productCatalog : productCatalogDirectory.getAccountList()) {
+        for (ProductCatalog productCatalog : productCatalogDirectory.getProductCatalogList()) {
            Object[] row=new Object[4];
            row[0]=productCatalog;
            row[1]=productCatalog.getModelNumber();

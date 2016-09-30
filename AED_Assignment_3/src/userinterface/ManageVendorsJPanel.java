@@ -10,6 +10,7 @@ import business.ProductCatalogDirectory;
 import business.VendorCatalog;
 import business.VendorCatalogDirectory;
 import java.awt.CardLayout;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -29,6 +30,7 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.vendorCatalogDirectory=vendorCatalogDirectory;
+        this.productCatalogDirectory=productCatalogDirectory;
         populateTable();
     }
 
@@ -78,7 +80,7 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblVendorList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 88, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 190));
 
         btnAddVendor.setText("Add Vendor");
         btnAddVendor.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +88,7 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
                 btnAddVendorActionPerformed(evt);
             }
         });
-        add(btnAddVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        add(btnAddVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         btnDeleteVendor.setText("Delete Vendor");
         btnDeleteVendor.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +96,7 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
                 btnDeleteVendorActionPerformed(evt);
             }
         });
-        add(btnDeleteVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
+        add(btnDeleteVendor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
 
         btnBack.setText("< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +104,7 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Vendor Signed up with ATcorp:");
@@ -127,18 +129,23 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
     private void btnDeleteVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteVendorActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblVendorList.getSelectedRow();
-        if(selectedRow>=0)
-        {
-         int dialogButton = JOptionPane.YES_NO_OPTION;
-         int dialogResult = JOptionPane.showConfirmDialog(this,"Are you sure you want to delete??","Warning", dialogButton);
-         if(dialogResult == JOptionPane.YES_OPTION){
-             VendorCatalog vendorCatalog = (VendorCatalog)tblVendorList.getValueAt(selectedRow, 0);
-             vendorCatalogDirectory.delete(vendorCatalog);
-             populateTable();
-         }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
+        if (selectedRow >= 0) {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete??", "Warning", dialogButton);
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                VendorCatalog vendorCatalog = (VendorCatalog) tblVendorList.getValueAt(selectedRow, 0);
+                for (Iterator<ProductCatalog> it = productCatalogDirectory.getProductCatalogList().iterator(); it.hasNext();) {
+                    ProductCatalog productCatalog = it.next();
+                    if (productCatalog.getVendorName().equals(vendorCatalog.toString())) {
+                        it.remove();
+                    }
+                }
+                vendorCatalogDirectory.delete(vendorCatalog);
+                populateTable();
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteVendorActionPerformed
 
