@@ -5,17 +5,37 @@
  */
 package userinterface;
 
+import business.ProductCatalog;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Chintan
  */
 public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
-
+    private JPanel userProcessContainer;
+    private ProductCatalog productCatalog;
     /**
      * Creates new form ViewCustomerDetailsJPanel
      */
-    public ViewCustomerDetailsJPanel() {
+
+    ViewCustomerDetailsJPanel(JPanel userProcessContainer, ProductCatalog productCatalog) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalog = productCatalog;
+        populateAccountDetails();
+    }
+    
+    private void populateAccountDetails() {
+        txtProductName.setText(productCatalog.getProductName());
+        txtModelNumber.setText(productCatalog.getModelNumber());
+        txtDescription.setText(productCatalog.getProductDescriptionStatement());
+        txtVendorName.setText(productCatalog.getVendorName());
+        txtFloorPrice.setText(String.valueOf(productCatalog.getFloorPrice()));
+        txtBasePrice.setText(String.valueOf(productCatalog.getBasePrice()));
+        txtCeilingPrice.setText(String.valueOf(productCatalog.getCeilPrice()));
+        txtFeatures.setText(productCatalog.getFeatures());
     }
 
     /**
@@ -37,7 +57,7 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         txtProductName = new javax.swing.JTextField();
         txtModelNumber = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtFeatures = new javax.swing.JTextArea();
         txtVendorName = new javax.swing.JTextField();
         txtBasePrice = new javax.swing.JTextField();
         lblFloorPrice = new javax.swing.JLabel();
@@ -46,14 +66,14 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         txtCeilingPrice = new javax.swing.JTextField();
         lblCeilingPrice = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtDescription = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(928, 771));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHeader.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblHeader.setText("View Product");
-        add(lblHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 40, -1, -1));
+        add(lblHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         lblProductName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblProductName.setText("Product Name:");
@@ -86,22 +106,27 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         lblProdFeature.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(lblProdFeature, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 505, 131, 27));
 
+        txtProductName.setEditable(false);
         txtProductName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 119, 276, 27));
 
+        txtModelNumber.setEditable(false);
         txtModelNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(txtModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 164, 276, 27));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane1.setViewportView(jTextArea1);
+        txtFeatures.setEditable(false);
+        txtFeatures.setColumns(20);
+        txtFeatures.setRows(5);
+        txtFeatures.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setViewportView(txtFeatures);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 505, 276, -1));
 
+        txtVendorName.setEditable(false);
         txtVendorName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(txtVendorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 209, 276, 28));
 
+        txtBasePrice.setEditable(false);
         txtBasePrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(txtBasePrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 367, 276, 28));
 
@@ -109,12 +134,19 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         lblFloorPrice.setText("Floor Price:");
         add(lblFloorPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 131, 27));
 
+        txtFloorPrice.setEditable(false);
         txtFloorPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(txtFloorPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 459, 276, 28));
 
         btnBack1.setText("< BACK");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
         add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 617, -1, -1));
 
+        txtCeilingPrice.setEditable(false);
         txtCeilingPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         add(txtCeilingPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 413, 276, 28));
 
@@ -123,21 +155,27 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         lblCeilingPrice.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(lblCeilingPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 413, 131, 27));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane2.setViewportView(jTextArea2);
+        txtDescription.setEditable(false);
+        txtDescription.setColumns(20);
+        txtDescription.setRows(5);
+        txtDescription.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane2.setViewportView(txtDescription);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 255, 276, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblBasePrice;
     private javax.swing.JLabel lblCeilingPrice;
     private javax.swing.JLabel lblFloorPrice;
@@ -149,6 +187,8 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblVendorName;
     private javax.swing.JTextField txtBasePrice;
     private javax.swing.JTextField txtCeilingPrice;
+    private javax.swing.JTextArea txtDescription;
+    private javax.swing.JTextArea txtFeatures;
     private javax.swing.JTextField txtFloorPrice;
     private javax.swing.JTextField txtModelNumber;
     private javax.swing.JTextField txtProductName;

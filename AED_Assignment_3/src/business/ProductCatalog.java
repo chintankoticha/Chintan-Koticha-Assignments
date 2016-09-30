@@ -16,7 +16,7 @@ public class ProductCatalog {
     private String vendorName;
     private String productDescriptionStatement;
     float basePrice;
-    float ceilProce;
+    float ceilPrice;
     float floorPrice;
     private String features;
 
@@ -60,12 +60,12 @@ public class ProductCatalog {
         this.basePrice = basePrice;
     }
 
-    public float getCeilProce() {
-        return ceilProce;
+    public float getCeilPrice() {
+        return ceilPrice;
     }
 
-    public void setCeilProce(float ceilProce) {
-        this.ceilProce = ceilProce;
+    public void setCeilPrice(float ceilPrice) {
+        this.ceilPrice = ceilPrice;
     }
 
     public float getFloorPrice() {
@@ -82,6 +82,12 @@ public class ProductCatalog {
 
     public void setFeatures(String features) {
         this.features = features;
+    }
+    
+    @Override
+    public String toString(){
+        this.productName=productName;
+        return productName;
     }
     
 }

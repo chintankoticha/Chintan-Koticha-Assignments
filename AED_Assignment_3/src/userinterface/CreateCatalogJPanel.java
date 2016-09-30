@@ -5,8 +5,10 @@
  */
 package userinterface;
 
+import business.ProductCatalog;
 import business.ProductCatalogDirectory;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -17,15 +19,17 @@ import javax.swing.JPanel;
  * @author Chintan
  */
 public class CreateCatalogJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
+
     /**
      * Creates new form CreateCatalogJPanel
      */
-    public CreateCatalogJPanel() {
+    public CreateCatalogJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.productCatalogDirectory=productCatalogDirectory;
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalogDirectory = productCatalogDirectory;
     }
 
     /**
@@ -126,6 +130,11 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         });
 
         btnReset.setText("RESET");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         btnSubmit.setText("SUBMIT");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -243,9 +252,13 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+      userProcessContainer.remove(this);
+      Component[] componentArray = userProcessContainer.getComponents();
+      Component component = componentArray[componentArray.length - 1];
+      VendorCatalogJPanel manageCatalogJPanel = (VendorCatalogJPanel) component;
+      manageCatalogJPanel.populateTable();
+      CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+      layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
@@ -253,26 +266,25 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         String productName = txtProductName.getText();
         String modelNumber = txtModelNumber.getText();
         String vendorName = txtVendorName.getText();
-        String features =txtFeatures.getText();
-        String desc= txtDescription.getText();
+        String features = txtFeatures.getText();
+        String desc = txtDescription.getText();
         String basePriceTemp;
         String ceilPriceTemp;
         String floorPriceTemp;
-        basePriceTemp=String.valueOf(txtBasePrice.getText());
-        ceilPriceTemp=String.valueOf(txtCeilingPrice.getText());
-        floorPriceTemp=String.valueOf(txtFloorPrice.getText());
-        
-        if (productName.isEmpty() || productName.startsWith(" ") || 
-            modelNumber.isEmpty() || modelNumber.startsWith(" ")||
-            vendorName.isEmpty() || vendorName.startsWith(" ")||
-            desc.isEmpty() || desc.startsWith(" ")||
-            features.isEmpty() || features.startsWith(" ")
-            ||basePriceTemp.trim().isEmpty()||ceilPriceTemp.trim().isEmpty()
-            ||floorPriceTemp.trim().isEmpty()){
+        basePriceTemp = String.valueOf(txtBasePrice.getText());
+        ceilPriceTemp = String.valueOf(txtCeilingPrice.getText());
+        floorPriceTemp = String.valueOf(txtFloorPrice.getText());
+
+        if (productName.isEmpty() || productName.startsWith(" ")
+                || modelNumber.isEmpty() || modelNumber.startsWith(" ")
+                || vendorName.isEmpty() || vendorName.startsWith(" ")
+                || desc.isEmpty() || desc.startsWith(" ")
+                || features.isEmpty() || features.startsWith(" ") /*||basePriceTemp.trim().isEmpty()||ceilPriceTemp.trim().isEmpty()
+            ||floorPriceTemp.trim().isEmpty()*/) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory!!! (make sure you dont start with spaces!)");
             return;
         }
-        
+
         //Validating first and last name
         String modelNumberPattern = "[a-zA-Z]{2}\\-\\d\\d\\d\\d";
         Pattern patternFName = Pattern.compile(modelNumberPattern);
@@ -282,32 +294,109 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
             return;
         } else {
         }
-        
+
         Float basePrice;
         Float ceilPrice;
         Float floorPrice;
         if (basePriceTemp.trim().length() != 0) {
             try {
-                basePrice = Float.parseFloat(txtBasePrice.getText());
-                {
-                    if(basePrice<0)
-                    {
-                    JOptionPane.showMessageDialog(this, "BasePrice cannot be negetive!!");
-                    return;
-                    }
-                }
+                basePrice = Float.parseFloat(txtBasePrice.getText());                
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,"Base price can contain only numbers!!");
+                JOptionPane.showMessageDialog(this, "Base price can contain only numbers!!");
                 return;
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Total experience cannot be empty!!");
+            JOptionPane.showMessageDialog(this, "Base Price cannot be empty!!");
             return;
         }
+        
+        if (basePrice < 0) {
+                        JOptionPane.showMessageDialog(this, "BasePrice cannot be negetive!!");
+                        return;
+                    }
+
+        if (ceilPriceTemp.trim().length() != 0) {
+            try {
+                ceilPrice = Float.parseFloat(txtCeilingPrice.getText());
+                } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Ceil price can contain only numbers!!");
+                return;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Ceil Price cannot be empty!!");
+            return;
+        }
+        
+        if (ceilPrice < 0) {
+                        JOptionPane.showMessageDialog(this, "CeilPrice cannot be negetive!!");
+                        return;
+                    }
+        else if(ceilPrice<basePrice)
+                    {
+                       JOptionPane.showMessageDialog(this, "CeilPrice cannot be less then Base Price!!");
+                       return;
+                    }
+        
+        if (floorPriceTemp.trim().length() != 0) {
+            try {
+                 floorPrice = Float.parseFloat(txtFloorPrice.getText());
+                } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Floor price can contain only numbers!!");
+                return;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Floor Price cannot be empty!!");
+            return;
+        }
+        
+        if (floorPrice < 0) {
+                        JOptionPane.showMessageDialog(this, "Floor Price cannot be negetive!!");
+                        return;
+                    }
+        else if(floorPrice>basePrice)
+                    {
+                       JOptionPane.showMessageDialog(this, "Floor Price cannot be greater then Base Price!!");
+                       return;
+                    }
+        
+        //Adding to product catalog directory
+        ProductCatalog productCatalog = productCatalogDirectory.addProductCatalog();
+
+        productCatalog.setProductName(productName);
+        productCatalog.setModelNumber(modelNumber);
+        productCatalog.setVendorName(vendorName);
+        productCatalog.setBasePrice(basePrice);
+        productCatalog.setProductDescriptionStatement(desc);
+        productCatalog.setCeilPrice(ceilPrice);
+        productCatalog.setFloorPrice(floorPrice);
+        productCatalog.setFeatures(features);
+        JOptionPane.showMessageDialog(this, "Product Added Successully!!!");
+        resetFields();        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        txtBasePrice.setText("");
+        txtCeilingPrice.setText("");
+        txtDescription.setText("");
+        txtFeatures.setText("");
+        txtFloorPrice.setText("");
+        txtModelNumber.setText("");
+        txtProductName.setText("");
+        txtVendorName.setText("");
+    }//GEN-LAST:event_btnResetActionPerformed
 
+    private void resetFields(){
+        txtBasePrice.setText("");
+        txtCeilingPrice.setText("");
+        txtDescription.setText("");
+        txtFeatures.setText("");
+        txtFloorPrice.setText("");
+        txtModelNumber.setText("");
+        txtProductName.setText("");
+        txtVendorName.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnReset;

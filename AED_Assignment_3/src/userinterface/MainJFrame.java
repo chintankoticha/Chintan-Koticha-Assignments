@@ -6,20 +6,114 @@
 package userinterface;
 
 import business.ProductCatalogDirectory;
+import business.VendorCatalogDirectory;
 import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.geom.AffineTransform;
+import javax.swing.Icon;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.plaf.basic.BasicLabelUI;
+
 /**
  *
  * @author Chintan
  */
 public class MainJFrame extends javax.swing.JFrame {
 
+    public static Rectangle paintIconR = new Rectangle();
+    public static Rectangle paintTextR = new Rectangle();
+    public static Rectangle paintViewR = new Rectangle();
+    public static Insets paintViewInsets = new Insets(0, 0, 0, 0);
+
     /**
      * Creates new form MainJFrame
      */
+    private VendorCatalogDirectory vendorCatalogDirectory;
     private ProductCatalogDirectory productCatalogDirectory;
+
     public MainJFrame() {
         initComponents();
-        this.productCatalogDirectory= new ProductCatalogDirectory();
+        this.productCatalogDirectory = new ProductCatalogDirectory();
+        this.vendorCatalogDirectory=new VendorCatalogDirectory();
+
+        lblName.setUI(new VerticalLabelUI(true));
+    }
+
+    public static class VerticalLabelUI extends BasicLabelUI {
+
+        static {
+            labelUI = new VerticalLabelUI(false);
+        }
+        protected boolean clockwise;
+
+        public VerticalLabelUI(boolean clockwise) {
+            super();
+            this.clockwise = clockwise;
+        }
+
+        @Override
+        public Dimension getPreferredSize(JComponent c) {
+            Dimension dim = super.getPreferredSize(c);
+            return new Dimension(dim.height, dim.width);
+        }
+
+        @Override
+        public void paint(Graphics g, JComponent c) {
+            JLabel label = (JLabel) c;
+            String text = label.getText();
+            Icon icon = (label.isEnabled()) ? label.getIcon() : label.getDisabledIcon();
+
+            if ((icon == null) && (text == null)) {
+                return;
+            }
+
+            FontMetrics fm = g.getFontMetrics();
+            paintViewInsets = c.getInsets(paintViewInsets);
+
+            paintViewR.x = paintViewInsets.left;
+            paintViewR.y = paintViewInsets.top;
+
+            // Use inverted height & width
+            paintViewR.height = c.getWidth() - (paintViewInsets.left + paintViewInsets.right);
+            paintViewR.width = c.getHeight() - (paintViewInsets.top + paintViewInsets.bottom);
+
+            paintIconR.x = paintIconR.y = paintIconR.width = paintIconR.height = 0;
+            paintTextR.x = paintTextR.y = paintTextR.width = paintTextR.height = 0;
+
+            String clippedText = layoutCL(label, fm, text, icon, paintViewR, paintIconR, paintTextR);
+
+            Graphics2D g2 = (Graphics2D) g;
+            AffineTransform tr = g2.getTransform();
+            if (clockwise) {
+                g2.rotate(-Math.PI / 2);
+                g2.translate(-c.getWidth(), 0);
+            } else {
+                g2.rotate(-Math.PI / 2);
+                g2.translate(-c.getHeight(), 0);
+            }
+
+            if (icon != null) {
+                icon.paintIcon(c, g, paintIconR.x, paintIconR.y);
+            }
+
+            if (text != null) {
+                int textX = paintTextR.x;
+                int textY = paintTextR.y + fm.getAscent();
+
+                if (label.isEnabled()) {
+                    paintEnabledText(label, g, clippedText, textX, textY);
+                } else {
+                    paintDisabledText(label, g, clippedText, textX, textY);
+                }
+            }
+            g2.setTransform(tr);
+        }
     }
 
     /**
@@ -34,10 +128,14 @@ public class MainJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         ControlJPanel = new javax.swing.JPanel();
         btnSTART = new javax.swing.JButton();
+        lblName = new javax.swing.JLabel();
         userProcessContainer = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ControlJPanel.setBackground(new java.awt.Color(0, 0, 0));
+
+        btnSTART.setBackground(new java.awt.Color(0, 204, 204));
         btnSTART.setText("START");
         btnSTART.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,13 +143,19 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        lblName.setFont(new java.awt.Font("Verdana", 3, 14)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 102, 0));
+        lblName.setText("ATcorp");
+
         javax.swing.GroupLayout ControlJPanelLayout = new javax.swing.GroupLayout(ControlJPanel);
         ControlJPanel.setLayout(ControlJPanelLayout);
         ControlJPanelLayout.setHorizontalGroup(
             ControlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ControlJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnSTART, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                .addGroup(ControlJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSTART, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ControlJPanelLayout.setVerticalGroup(
@@ -59,7 +163,9 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(ControlJPanelLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(btnSTART)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         jSplitPane1.setLeftComponent(ControlJPanel);
@@ -74,8 +180,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnSTARTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSTARTActionPerformed
         // TODO add your handling code here:
-        ProductWorkAreaJPanel panel = new ProductWorkAreaJPanel(userProcessContainer,productCatalogDirectory);
-        userProcessContainer.add("ProductWorkAreaJPanel",panel);
+        ProductWorkAreaJPanel panel = new ProductWorkAreaJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory);
+        userProcessContainer.add("ProductWorkAreaJPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnSTARTActionPerformed
@@ -119,6 +225,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ControlJPanel;
     private javax.swing.JButton btnSTART;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel lblName;
     private javax.swing.JPanel userProcessContainer;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,16 +16,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCustomerLogin" linkSize="1" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                  <Component id="btnManagerLogin" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btnManagerLogin" max="32767" attributes="0"/>
+                  <Component id="btnCustomerLogin" linkSize="1" alignment="1" pref="95" max="32767" attributes="0"/>
+                  <Component id="btnVendorLogin" linkSize="1" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblCustomerDesc" linkSize="3" min="-2" pref="186" max="-2" attributes="0"/>
-                  <Component id="lblManagerDesc" linkSize="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lblCustomerDesc" linkSize="3" pref="186" max="32767" attributes="0"/>
+                  <Component id="lblManagerDesc" linkSize="3" max="32767" attributes="0"/>
+                  <Component id="lblManagerDesc1" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
@@ -34,17 +36,22 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCustomerLogin" linkSize="2" alignment="3" pref="46" max="32767" attributes="0"/>
                   <Component id="lblCustomerDesc" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnManagerLogin" linkSize="2" alignment="3" max="32767" attributes="0"/>
+                  <Component id="btnVendorLogin" linkSize="2" alignment="3" max="32767" attributes="0"/>
                   <Component id="lblManagerDesc" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnManagerLogin" linkSize="2" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="lblManagerDesc1" alignment="3" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,12 +65,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCustomerLoginActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnManagerLogin">
+    <Component class="javax.swing.JButton" name="btnVendorLogin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Manager"/>
+        <Property name="text" type="java.lang.String" value="Vendor"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManagerLoginActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVendorLoginActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCustomerDesc">
@@ -75,6 +82,22 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblManagerDesc">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Georgia" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Log-in as a Vendor"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnManagerLogin">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manager"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManagerLoginActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblManagerDesc1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Georgia" size="14" style="3"/>
