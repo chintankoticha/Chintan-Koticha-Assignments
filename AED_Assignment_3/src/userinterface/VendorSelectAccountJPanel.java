@@ -5,7 +5,6 @@
  */
 package userinterface;
 
-import business.ProductCatalog;
 import business.ProductCatalogDirectory;
 import business.VendorCatalog;
 import business.VendorCatalogDirectory;
@@ -19,31 +18,33 @@ import javax.swing.table.DefaultTableModel;
  * @author Chintan
  */
 public class VendorSelectAccountJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
     private VendorCatalogDirectory vendorCatalogDirectory;
-    
+
     /**
      * Creates new form ManagerAccountJPanel
      */
     public VendorSelectAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.productCatalogDirectory=productCatalogDirectory;
-        this.vendorCatalogDirectory=vendorCatalogDirectory;
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalogDirectory = productCatalogDirectory;
+        this.vendorCatalogDirectory = vendorCatalogDirectory;
         populateTable();
     }
-    
-    public void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel)tblVendorList.getModel();
+
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblVendorList.getModel();
         dtm.setRowCount(0);
         for (VendorCatalog vendorCatalog : vendorCatalogDirectory.getVendorsList()) {
-           Object[] row=new Object[1];
-           row[0]=vendorCatalog;
-           
-           dtm.addRow(row);
+            Object[] row = new Object[1];
+            row[0] = vendorCatalog;
+
+            dtm.addRow(row);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -150,7 +151,7 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblVendorList.getSelectedRow();
@@ -160,7 +161,7 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
             try {
                 char[] password = txtPassword.getPassword();
                 String passwordString = new String(password);
-                if (txtUsername.getText().equals(vendorCatalogSelected) && passwordString.equals(vendorCatalogSelected.concat("123"))){
+                if (txtUsername.getText().equals(vendorCatalogSelected) && passwordString.equals(vendorCatalogSelected.concat("123"))) {
                     VendorCatalogJPanel panel = new VendorCatalogJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory, vendorCatalogSelected);
                     userProcessContainer.add("VendorCatalogJPanel", panel);
                     CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -174,16 +175,15 @@ public class VendorSelectAccountJPanel extends javax.swing.JPanel {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Invalid Credentials!!", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 

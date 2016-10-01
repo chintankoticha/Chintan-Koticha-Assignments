@@ -40,7 +40,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         this.productCatalogDirectory = new ProductCatalogDirectory();
-        this.vendorCatalogDirectory=new VendorCatalogDirectory();
+        this.vendorCatalogDirectory = new VendorCatalogDirectory();
 
         lblName.setUI(new VerticalLabelUI(true));
     }

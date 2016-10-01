@@ -19,15 +19,17 @@ import javax.swing.JPanel;
  * @author Chintan
  */
 public class AddVendorJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private VendorCatalogDirectory vendorCatalogDirectory;
+
     /**
      * Creates new form AddVendorJPanel
      */
     public AddVendorJPanel(JPanel userProcessContainer, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.vendorCatalogDirectory=vendorCatalogDirectory;   
+        this.userProcessContainer = userProcessContainer;
+        this.vendorCatalogDirectory = vendorCatalogDirectory;
     }
 
     /**
@@ -103,24 +105,24 @@ public class AddVendorJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-      userProcessContainer.remove(this);
-      Component[] componentArray = userProcessContainer.getComponents();
-      Component component = componentArray[componentArray.length - 1];
-      ManageVendorsJPanel manageVendorsJPanel = (ManageVendorsJPanel) component;
-      manageVendorsJPanel.populateTable();
-      CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-      layout.previous(userProcessContainer);
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageVendorsJPanel manageVendorsJPanel = (ManageVendorsJPanel) component;
+        manageVendorsJPanel.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        String vendorName=txtVendorName.getText();
-        
-        if(vendorName.isEmpty()||vendorName.startsWith(" ")){
+        String vendorName = txtVendorName.getText();
+
+        if (vendorName.isEmpty() || vendorName.startsWith(" ")) {
             JOptionPane.showMessageDialog(this, "Vendor Name is mandatory!!!");
             return;
         }
-        
+
         String VendorNamePattern = "[a-zA-Z ]+";
         Pattern patternLName = Pattern.compile(VendorNamePattern);
         Matcher matchLName = patternLName.matcher(txtVendorName.getText());
@@ -136,7 +138,7 @@ public class AddVendorJPanel extends javax.swing.JPanel {
                 return;
             }
         }
-        
+
         VendorCatalog vendorCatalog = vendorCatalogDirectory.addVendorCatalog();
 
         vendorCatalog.setVendorName(vendorName);

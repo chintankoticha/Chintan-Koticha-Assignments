@@ -20,30 +20,33 @@ import javax.swing.table.DefaultTableModel;
  * @author Chintan
  */
 public class ManageVendorsJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
     private VendorCatalogDirectory vendorCatalogDirectory;
+
     /**
      * Creates new form ManageVendorsJPanel
      */
     public ManageVendorsJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.vendorCatalogDirectory=vendorCatalogDirectory;
-        this.productCatalogDirectory=productCatalogDirectory;
+        this.userProcessContainer = userProcessContainer;
+        this.vendorCatalogDirectory = vendorCatalogDirectory;
+        this.productCatalogDirectory = productCatalogDirectory;
         populateTable();
     }
 
-    public void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel)tblVendorList.getModel();
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblVendorList.getModel();
         dtm.setRowCount(0);
         for (VendorCatalog vendorCatalog : vendorCatalogDirectory.getVendorsList()) {
-           Object[] row=new Object[1];
-           row[0]=vendorCatalog;
-                   
-           dtm.addRow(row);
+            Object[] row = new Object[1];
+            row[0] = vendorCatalog;
+
+            dtm.addRow(row);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,15 +117,15 @@ public class ManageVendorsJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVendorActionPerformed
         // TODO add your handling code here:
-        AddVendorJPanel panel = new AddVendorJPanel(userProcessContainer,vendorCatalogDirectory);
-        userProcessContainer.add("AddVendorJPanel",panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        AddVendorJPanel panel = new AddVendorJPanel(userProcessContainer, vendorCatalogDirectory);
+        userProcessContainer.add("AddVendorJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddVendorActionPerformed
 

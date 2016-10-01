@@ -16,17 +16,19 @@ import javax.swing.JPanel;
  * @author Chintan
  */
 public class ManagerAccountJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
     private VendorCatalogDirectory vendorCatalogDirectory;
+
     /**
      * Creates new form ManagerAccountJPanel
      */
     public ManagerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.productCatalogDirectory=productCatalogDirectory;
-        this.vendorCatalogDirectory=vendorCatalogDirectory;
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalogDirectory = productCatalogDirectory;
+        this.vendorCatalogDirectory = vendorCatalogDirectory;
     }
 
     /**
@@ -113,23 +115,22 @@ public class ManagerAccountJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if((txtUsername.getText().equals("manager"))&&(txtPassword.getText().equals("manager123"))){
-        ManageVendorsJPanel panel = new ManageVendorsJPanel(userProcessContainer,productCatalogDirectory, vendorCatalogDirectory);
-        userProcessContainer.add("ManageVendorsJPanel", panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-        txtUsername.setText("");
-        txtPassword.setText("");
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"Invalid Credentials!!!");
+        if ((txtUsername.getText().equals("manager")) && (txtPassword.getText().equals("manager123"))) {
+            ManageVendorsJPanel panel = new ManageVendorsJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory);
+            userProcessContainer.add("ManageVendorsJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+            txtUsername.setText("");
+            txtPassword.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid Credentials!!!");
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 

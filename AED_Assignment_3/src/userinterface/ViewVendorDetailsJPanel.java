@@ -18,8 +18,10 @@ import javax.swing.JPanel;
  * @author Chintan
  */
 public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalog productCatalog;
+
     /**
      * Creates new form ViewDetailsJPanel
      */
@@ -42,6 +44,7 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
         txtCeilingPrice.setText(String.valueOf(productCatalog.getCeilPrice()));
         txtFeatures.setText(productCatalog.getFeatures());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -292,13 +295,12 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
                 || modelNumber.isEmpty() || modelNumber.startsWith(" ")
                 || vendorName.isEmpty() || vendorName.startsWith(" ")
                 || desc.isEmpty() || desc.startsWith(" ")
-                || features.isEmpty() || features.startsWith(" ") /*||basePriceTemp.trim().isEmpty()||ceilPriceTemp.trim().isEmpty()
-            ||floorPriceTemp.trim().isEmpty()*/) {
+                || features.isEmpty() || features.startsWith(" ")) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory!!! (make sure you dont start with spaces!)");
             return;
         }
 
-        //Validating first and last name
+        //Validating modelNumber
         String modelNumberPattern = "[a-zA-Z]{2}\\-\\d\\d\\d\\d";
         Pattern patternFName = Pattern.compile(modelNumberPattern);
         Matcher matchFName = patternFName.matcher(txtModelNumber.getText());
@@ -313,7 +315,7 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
         Float floorPrice;
         if (basePriceTemp.trim().length() != 0) {
             try {
-                basePrice = Float.parseFloat(txtBasePrice.getText());                
+                basePrice = Float.parseFloat(txtBasePrice.getText());
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Base price can contain only numbers!!");
                 return;
@@ -322,16 +324,16 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Base Price cannot be empty!!");
             return;
         }
-        
+
         if (basePrice < 0) {
-                        JOptionPane.showMessageDialog(this, "BasePrice cannot be negetive!!");
-                        return;
-                    }
+            JOptionPane.showMessageDialog(this, "BasePrice cannot be negetive!!");
+            return;
+        }
 
         if (ceilPriceTemp.trim().length() != 0) {
             try {
                 ceilPrice = Float.parseFloat(txtCeilingPrice.getText());
-                } catch (Exception e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Ceil price can contain only numbers!!");
                 return;
             }
@@ -339,21 +341,19 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Ceil Price cannot be empty!!");
             return;
         }
-        
+
         if (ceilPrice < 0) {
-                        JOptionPane.showMessageDialog(this, "CeilPrice cannot be negetive!!");
-                        return;
-                    }
-        else if(ceilPrice<basePrice)
-                    {
-                       JOptionPane.showMessageDialog(this, "CeilPrice cannot be less then Base Price!!");
-                       return;
-                    }
-        
+            JOptionPane.showMessageDialog(this, "CeilPrice cannot be negetive!!");
+            return;
+        } else if (ceilPrice < basePrice) {
+            JOptionPane.showMessageDialog(this, "CeilPrice cannot be less then Base Price!!");
+            return;
+        }
+
         if (floorPriceTemp.trim().length() != 0) {
             try {
-                 floorPrice = Float.parseFloat(txtFloorPrice.getText());
-                } catch (Exception e) {
+                floorPrice = Float.parseFloat(txtFloorPrice.getText());
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Floor price can contain only numbers!!");
                 return;
             }
@@ -361,17 +361,15 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Floor Price cannot be empty!!");
             return;
         }
-        
+
         if (floorPrice < 0) {
-                        JOptionPane.showMessageDialog(this, "Floor Price cannot be negetive!!");
-                        return;
-                    }
-        else if(floorPrice>basePrice)
-                    {
-                       JOptionPane.showMessageDialog(this, "Floor Price cannot be greater then Base Price!!");
-                       return;
-                    }
-        
+            JOptionPane.showMessageDialog(this, "Floor Price cannot be negetive!!");
+            return;
+        } else if (floorPrice > basePrice) {
+            JOptionPane.showMessageDialog(this, "Floor Price cannot be greater then Base Price!!");
+            return;
+        }
+
         productCatalog.setProductName(productName);
         productCatalog.setModelNumber(modelNumber);
         productCatalog.setVendorName(vendorName);
@@ -380,7 +378,7 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
         productCatalog.setCeilPrice(ceilPrice);
         productCatalog.setFloorPrice(floorPrice);
         productCatalog.setFeatures(features);
-        
+
         btnSave.setEnabled(false);
         btnUpdate.setEnabled(true);
         JOptionPane.showMessageDialog(this, "Details updated Successfully!!", "Information", JOptionPane.INFORMATION_MESSAGE);
@@ -396,13 +394,13 @@ public class ViewVendorDetailsJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-      userProcessContainer.remove(this);
-      Component[] componentArray = userProcessContainer.getComponents();
-      Component component = componentArray[componentArray.length - 1];
-      VendorCatalogJPanel manageCatalogJPanel = (VendorCatalogJPanel) component;
-      manageCatalogJPanel.populateTable();
-      CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-      layout.previous(userProcessContainer);
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        VendorCatalogJPanel manageCatalogJPanel = (VendorCatalogJPanel) component;
+        manageCatalogJPanel.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

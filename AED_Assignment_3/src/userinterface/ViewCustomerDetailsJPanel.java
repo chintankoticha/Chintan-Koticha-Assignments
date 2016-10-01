@@ -14,8 +14,10 @@ import javax.swing.JPanel;
  * @author Chintan
  */
 public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalog productCatalog;
+
     /**
      * Creates new form ViewCustomerDetailsJPanel
      */
@@ -26,7 +28,7 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
         this.productCatalog = productCatalog;
         populateAccountDetails();
     }
-    
+
     private void populateAccountDetails() {
         txtProductName.setText(productCatalog.getProductName());
         txtModelNumber.setText(productCatalog.getModelNumber());
@@ -171,7 +173,7 @@ public class ViewCustomerDetailsJPanel extends javax.swing.JPanel {
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBack1ActionPerformed
 

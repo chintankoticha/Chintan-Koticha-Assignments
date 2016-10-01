@@ -10,6 +10,7 @@ package business;
  * @author Chintan
  */
 public class VendorCatalog {
+
     private String vendorName;
 
     public String getVendorName() {
@@ -19,10 +20,10 @@ public class VendorCatalog {
     public void setVendorName(String vendorName) {
         this.vendorName = vendorName;
     }
-    
+
     @Override
-    public String toString(){
-        this.vendorName=vendorName;
+    public String toString() {
+        this.vendorName = vendorName;
         return vendorName;
     }
 }

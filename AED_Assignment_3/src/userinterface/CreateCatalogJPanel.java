@@ -31,7 +31,7 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.productCatalogDirectory = productCatalogDirectory;
-        this.vendorCatalogSelected=vendorCatalogSelected;
+        this.vendorCatalogSelected = vendorCatalogSelected;
         txtVendorName.setText(vendorCatalogSelected);
         txtVendorName.setEditable(false);
     }
@@ -256,13 +256,13 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-      userProcessContainer.remove(this);
-      Component[] componentArray = userProcessContainer.getComponents();
-      Component component = componentArray[componentArray.length - 1];
-      VendorCatalogJPanel manageCatalogJPanel = (VendorCatalogJPanel) component;
-      manageCatalogJPanel.populateTable();
-      CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-      layout.previous(userProcessContainer);
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        VendorCatalogJPanel manageCatalogJPanel = (VendorCatalogJPanel) component;
+        manageCatalogJPanel.populateTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
@@ -281,13 +281,12 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         if (productName.isEmpty() || productName.startsWith(" ")
                 || modelNumber.isEmpty() || modelNumber.startsWith(" ")
                 || desc.isEmpty() || desc.startsWith(" ")
-                || features.isEmpty() || features.startsWith(" ") /*||basePriceTemp.trim().isEmpty()||ceilPriceTemp.trim().isEmpty()
-            ||floorPriceTemp.trim().isEmpty()*/) {
+                || features.isEmpty() || features.startsWith(" ")) {
             JOptionPane.showMessageDialog(this, "All fields are mandatory!!! (make sure you dont start with spaces!)");
             return;
         }
 
-        //Validating first and last name
+        //Validating modelNumber
         String modelNumberPattern = "[a-zA-Z]{2}\\-\\d\\d\\d\\d";
         Pattern patternFName = Pattern.compile(modelNumberPattern);
         Matcher matchFName = patternFName.matcher(txtModelNumber.getText());
@@ -302,7 +301,7 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         Float floorPrice;
         if (basePriceTemp.trim().length() != 0) {
             try {
-                basePrice = Float.parseFloat(txtBasePrice.getText());                
+                basePrice = Float.parseFloat(txtBasePrice.getText());
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Base price can contain only numbers!!");
                 return;
@@ -311,16 +310,16 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Base Price cannot be empty!!");
             return;
         }
-        
+
         if (basePrice < 0) {
-                        JOptionPane.showMessageDialog(this, "BasePrice cannot be negetive!!");
-                        return;
-                    }
+            JOptionPane.showMessageDialog(this, "BasePrice cannot be negetive!!");
+            return;
+        }
 
         if (ceilPriceTemp.trim().length() != 0) {
             try {
                 ceilPrice = Float.parseFloat(txtCeilingPrice.getText());
-                } catch (Exception e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Ceil price can contain only numbers!!");
                 return;
             }
@@ -328,21 +327,19 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Ceil Price cannot be empty!!");
             return;
         }
-        
+
         if (ceilPrice < 0) {
-                        JOptionPane.showMessageDialog(this, "CeilPrice cannot be negetive!!");
-                        return;
-                    }
-        else if(ceilPrice<basePrice)
-                    {
-                       JOptionPane.showMessageDialog(this, "CeilPrice cannot be less then Base Price!!");
-                       return;
-                    }
-        
+            JOptionPane.showMessageDialog(this, "CeilPrice cannot be negetive!!");
+            return;
+        } else if (ceilPrice < basePrice) {
+            JOptionPane.showMessageDialog(this, "CeilPrice cannot be less then Base Price!!");
+            return;
+        }
+
         if (floorPriceTemp.trim().length() != 0) {
             try {
-                 floorPrice = Float.parseFloat(txtFloorPrice.getText());
-                } catch (Exception e) {
+                floorPrice = Float.parseFloat(txtFloorPrice.getText());
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Floor price can contain only numbers!!");
                 return;
             }
@@ -350,17 +347,15 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Floor Price cannot be empty!!");
             return;
         }
-        
+
         if (floorPrice < 0) {
-                        JOptionPane.showMessageDialog(this, "Floor Price cannot be negetive!!");
-                        return;
-                    }
-        else if(floorPrice>basePrice)
-                    {
-                       JOptionPane.showMessageDialog(this, "Floor Price cannot be greater then Base Price!!");
-                       return;
-                    }
-        
+            JOptionPane.showMessageDialog(this, "Floor Price cannot be negetive!!");
+            return;
+        } else if (floorPrice > basePrice) {
+            JOptionPane.showMessageDialog(this, "Floor Price cannot be greater then Base Price!!");
+            return;
+        }
+
         //Adding to product catalog directory
         ProductCatalog productCatalog = productCatalogDirectory.addProductCatalog();
 
@@ -373,7 +368,7 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         productCatalog.setFloorPrice(floorPrice);
         productCatalog.setFeatures(features);
         JOptionPane.showMessageDialog(this, "Product Added Successully!!!");
-        resetFields();        
+        resetFields();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
@@ -387,7 +382,7 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         txtProductName.setText("");
     }//GEN-LAST:event_btnResetActionPerformed
 
-    private void resetFields(){
+    private void resetFields() {
         txtBasePrice.setText("");
         txtCeilingPrice.setText("");
         txtDescription.setText("");
@@ -396,7 +391,7 @@ public class CreateCatalogJPanel extends javax.swing.JPanel {
         txtModelNumber.setText("");
         txtProductName.setText("");
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnReset;

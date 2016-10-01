@@ -5,12 +5,12 @@ package business;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Chintan
  */
 public class ProductCatalog {
+
     private String productName;
     private String modelNumber;
     private String vendorName;
@@ -83,11 +83,11 @@ public class ProductCatalog {
     public void setFeatures(String features) {
         this.features = features;
     }
-    
+
     @Override
-    public String toString(){
-        this.productName=productName;
+    public String toString() {
+        this.productName = productName;
         return productName;
     }
-    
+
 }

@@ -15,17 +15,19 @@ import javax.swing.JPanel;
  * @author Chintan
  */
 public class ProductWorkAreaJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
     private VendorCatalogDirectory vendorCatalogDirectory;
+
     /**
      * Creates new form ProductWorkAreaJPanel
      */
     public ProductWorkAreaJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
-       initComponents();
-       this.userProcessContainer=userProcessContainer;
-       this.productCatalogDirectory=productCatalogDirectory;
-       this.vendorCatalogDirectory=vendorCatalogDirectory;
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalogDirectory = productCatalogDirectory;
+        this.vendorCatalogDirectory = vendorCatalogDirectory;
     }
 
     /**
@@ -119,9 +121,9 @@ public class ProductWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnCustomerLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerLoginActionPerformed
         // TODO add your handling code here:
-        CustomerAccountJPanel panel = new CustomerAccountJPanel(userProcessContainer, productCatalogDirectory,vendorCatalogDirectory);
+        CustomerAccountJPanel panel = new CustomerAccountJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory);
         userProcessContainer.add("CustomerAccountJPanel", panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCustomerLoginActionPerformed
 
@@ -129,15 +131,15 @@ public class ProductWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         VendorSelectAccountJPanel panel = new VendorSelectAccountJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory);
         userProcessContainer.add("ManagerAccountJPanel", panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnVendorLoginActionPerformed
 
     private void btnManagerLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagerLoginActionPerformed
         // TODO add your handling code here:
-        ManagerAccountJPanel panel = new ManagerAccountJPanel(userProcessContainer,productCatalogDirectory, vendorCatalogDirectory);
+        ManagerAccountJPanel panel = new ManagerAccountJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogDirectory);
         userProcessContainer.add("ManagerAccountJPanel", panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManagerLoginActionPerformed
 

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package userinterface;
+
 import business.ProductCatalog;
 import business.ProductCatalogDirectory;
 import business.VendorCatalogDirectory;
@@ -17,42 +18,43 @@ import javax.swing.table.DefaultTableModel;
  * @author Chintan
  */
 public class VendorCatalogJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
     private ProductCatalogDirectory productCatalogDirectory;
     private VendorCatalogDirectory vendorCatalogDirectory;
     String vendorCatalogSelected;
+
     /**
      * Creates new form ManageCatalogJPanel
      */
     public VendorCatalogJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory, String vendorCatalogSelected) {
-       initComponents();
-       this.userProcessContainer=userProcessContainer;
-       this.productCatalogDirectory=productCatalogDirectory;
-       this.vendorCatalogDirectory=vendorCatalogDirectory;
-       this.vendorCatalogSelected=vendorCatalogSelected;
-       populateTable();  
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalogDirectory = productCatalogDirectory;
+        this.vendorCatalogDirectory = vendorCatalogDirectory;
+        this.vendorCatalogSelected = vendorCatalogSelected;
+        populateTable();
     }
-    
-    public void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel)tblManageTable.getModel();
+
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblManageTable.getModel();
         dtm.setRowCount(0);
-        
+
         for (ProductCatalog productCatalog : productCatalogDirectory.getProductCatalogList()) {
-           if(productCatalog.getVendorName().equals(vendorCatalogSelected)){
-           Object[] row=new Object[6];
-           row[0]=productCatalog;
-           row[1]=productCatalog.getModelNumber();
-           row[2]=productCatalog.getVendorName();
-           row[3]=productCatalog.getBasePrice();
-           row[4]=productCatalog.getCeilPrice();
-           row[5]=productCatalog.getFloorPrice();
-           
-           dtm.addRow(row);
-           }
+            if (productCatalog.getVendorName().equals(vendorCatalogSelected)) {
+                Object[] row = new Object[6];
+                row[0] = productCatalog;
+                row[1] = productCatalog.getModelNumber();
+                row[2] = productCatalog.getVendorName();
+                row[3] = productCatalog.getBasePrice();
+                row[4] = productCatalog.getCeilPrice();
+                row[5] = productCatalog.getFloorPrice();
+
+                dtm.addRow(row);
+            }
         }
-        
-        if(tblManageTable.getRowCount()==0)
-        {
+
+        if (tblManageTable.getRowCount() == 0) {
             JOptionPane.showMessageDialog(this, "No Products by this vendor as of now!!!");
         }
     }
@@ -165,49 +167,45 @@ public class VendorCatalogJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateCatalogJPanel panel = new CreateCatalogJPanel(userProcessContainer, productCatalogDirectory,vendorCatalogSelected);
+        CreateCatalogJPanel panel = new CreateCatalogJPanel(userProcessContainer, productCatalogDirectory, vendorCatalogSelected);
         userProcessContainer.add("CreateCatalogJPanel", panel);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblManageTable.getSelectedRow();
-        if(selectedRow>=0)
-        {
-            ProductCatalog productCatalog = (ProductCatalog)tblManageTable.getValueAt(selectedRow, 0);
-            ViewVendorDetailsJPanel panel = new ViewVendorDetailsJPanel(userProcessContainer,productCatalog);
-            userProcessContainer.add("ViewManagerDetailsJPanel",panel);
-            CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        if (selectedRow >= 0) {
+            ProductCatalog productCatalog = (ProductCatalog) tblManageTable.getValueAt(selectedRow, 0);
+            ViewVendorDetailsJPanel panel = new ViewVendorDetailsJPanel(userProcessContainer, productCatalog);
+            userProcessContainer.add("ViewManagerDetailsJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblManageTable.getSelectedRow();
-        if(selectedRow>=0)
-        {
-         int dialogButton = JOptionPane.YES_NO_OPTION;
-         int dialogResult = JOptionPane.showConfirmDialog(this,"Are you sure you want to delete??","Warning", dialogButton);
-         if(dialogResult == JOptionPane.YES_OPTION){
-             ProductCatalog productCatalog = (ProductCatalog)tblManageTable.getValueAt(selectedRow, 0);
-             productCatalogDirectory.delete(productCatalog);
-             populateTable();
-         }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
+        if (selectedRow >= 0) {
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete??", "Warning", dialogButton);
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                ProductCatalog productCatalog = (ProductCatalog) tblManageTable.getValueAt(selectedRow, 0);
+                productCatalogDirectory.delete(productCatalog);
+                populateTable();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

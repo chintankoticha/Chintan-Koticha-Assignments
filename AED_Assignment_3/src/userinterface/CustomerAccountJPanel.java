@@ -9,6 +9,7 @@ import business.ProductCatalog;
 import business.ProductCatalogDirectory;
 import business.VendorCatalogDirectory;
 import java.awt.CardLayout;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -18,16 +19,18 @@ import javax.swing.table.DefaultTableModel;
  * @author Chintan
  */
 public class CustomerAccountJPanel extends javax.swing.JPanel {
+
     private JPanel userProcessContainer;
-    private ProductCatalogDirectory productCatalogDirectory; 
+    private ProductCatalogDirectory productCatalogDirectory;
+
     /**
      * Creates new form CustomerAccountJPanel
      */
     public CustomerAccountJPanel(JPanel userProcessContainer, ProductCatalogDirectory productCatalogDirectory, VendorCatalogDirectory vendorCatalogDirectory) {
-       initComponents();
-       this.userProcessContainer=userProcessContainer;
-       this.productCatalogDirectory=productCatalogDirectory;
-       populateTable();  
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.productCatalogDirectory = productCatalogDirectory;
+        populateTable();
     }
 
     /**
@@ -42,27 +45,19 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCustomerView = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
-        btnProductName = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtProductNameExact = new javax.swing.JTextField();
-        btnModelNumber = new javax.swing.JButton();
         txtModelNameExact = new javax.swing.JTextField();
-        btnVendorName = new javax.swing.JButton();
         txtVendorNameExact = new javax.swing.JTextField();
-        btnPriceLess = new javax.swing.JButton();
         txtPriceLess = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtPriceMore = new javax.swing.JTextField();
-        btnPriceMore = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        lblKeyword = new javax.swing.JLabel();
-        txtProductNameKeyword = new javax.swing.JTextField();
-        txtModelNumberKeyword = new javax.swing.JTextField();
-        txtVendorNameKeyword = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
-
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnSearch = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         tblCustomerView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,23 +77,12 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCustomerView);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 54, 570, 169));
-
         btnBack.setText("< BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 519, -1, -1));
-
-        btnProductName.setText("Search(Product Name):");
-        btnProductName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductNameActionPerformed(evt);
-            }
-        });
-        add(btnProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 314, 188, -1));
 
         btnViewDetails.setText("VIEW DETAILS");
         btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -106,128 +90,294 @@ public class CustomerAccountJPanel extends javax.swing.JPanel {
                 btnViewDetailsActionPerformed(evt);
             }
         });
-        add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 241, 188, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Product List");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 7, 170, -1));
-
-        txtProductNameExact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProductNameExactActionPerformed(evt);
-            }
-        });
-        add(txtProductNameExact, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 314, 150, -1));
-
-        btnModelNumber.setText("Search(Model Number):");
-        add(btnModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 355, 188, -1));
-        add(txtModelNameExact, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 356, 150, -1));
-
-        btnVendorName.setText("Search(Vendor Name):");
-        add(btnVendorName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 396, 188, -1));
-        add(txtVendorNameExact, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 397, 150, -1));
-
-        btnPriceLess.setText("Search(Price less than __):");
-        add(btnPriceLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 437, 188, -1));
-        add(txtPriceLess, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 438, 150, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Search by starting Keywords or by exact words:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 242, -1, -1));
-        add(txtPriceMore, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 479, 150, -1));
-
-        btnPriceMore.setText("Search(Price more than __):");
-        add(btnPriceMore, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 478, 188, -1));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setText("Exact Words");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 282, -1, -1));
-
-        lblKeyword.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        lblKeyword.setText("Keywords");
-        add(lblKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 282, -1, -1));
-        add(txtProductNameKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 314, 150, -1));
-        add(txtModelNumberKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 356, 150, -1));
-        add(txtVendorNameKeyword, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 397, 150, -1));
 
         jButton6.setText("RESET");
-        add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(598, 54, -1, -1));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Product Name:");
+
+        jLabel4.setText("Model Number:");
+
+        jLabel5.setText("Price equal to:");
+
+        jLabel6.setText("Vendor Name:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtModelNameExact, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtVendorNameExact, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPriceLess, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtProductNameExact, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(50, 50, 50)
+                        .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel2))
+                            .addComponent(btnViewDetails))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtProductNameExact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtModelNameExact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtVendorNameExact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSearch))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPriceLess, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(btnBack))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void populateTable(){
-        DefaultTableModel dtm = (DefaultTableModel)tblCustomerView.getModel();
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblCustomerView.getModel();
         dtm.setRowCount(0);
         for (ProductCatalog productCatalog : productCatalogDirectory.getProductCatalogList()) {
-           Object[] row=new Object[4];
-           row[0]=productCatalog;
-           row[1]=productCatalog.getModelNumber();
-           row[2]=productCatalog.getVendorName();
-           row[3]=productCatalog.getBasePrice();
-           
-           dtm.addRow(row);
+            Object[] row = new Object[4];
+            row[0] = productCatalog;
+            row[1] = productCatalog.getModelNumber();
+            row[2] = productCatalog.getVendorName();
+            row[3] = productCatalog.getBasePrice();
+
+            dtm.addRow(row);
         }
     }
-    
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog(this,"Are you sure you want to exit??","Warning", dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
-        userProcessContainer.remove(this);
-        CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Are you sure you want to exit??", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            userProcessContainer.remove(this);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.previous(userProcessContainer);
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblCustomerView.getSelectedRow();
-        if(selectedRow>=0)
-        {
-            ProductCatalog productCatalog = (ProductCatalog)tblCustomerView.getValueAt(selectedRow, 0);
-            ViewCustomerDetailsJPanel panel = new ViewCustomerDetailsJPanel(userProcessContainer,productCatalog);
-            userProcessContainer.add("ViewCustomerDetailsJPanel",panel);
-            CardLayout layout= (CardLayout)userProcessContainer.getLayout();
+        if (selectedRow >= 0) {
+            ProductCatalog productCatalog = (ProductCatalog) tblCustomerView.getValueAt(selectedRow, 0);
+            ViewCustomerDetailsJPanel panel = new ViewCustomerDetailsJPanel(userProcessContainer, productCatalog);
+            userProcessContainer.add("ViewCustomerDetailsJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!","Warning",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a row from the table first!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
-    private void txtProductNameExactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameExactActionPerformed
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtProductNameExactActionPerformed
+        populateTable();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void btnProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductNameActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnProductNameActionPerformed
+        if ((!txtProductNameExact.getText().isEmpty()) && (txtModelNameExact.getText().isEmpty())
+                && (txtVendorNameExact.getText().isEmpty())
+                && (txtPriceLess.getText().isEmpty())) {
+
+            if (txtProductNameExact.getText().startsWith(" ")) {
+                JOptionPane.showMessageDialog(this, "Please enter Product Name Properly", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            DefaultTableModel dtm = (DefaultTableModel) tblCustomerView.getModel();
+            dtm.setRowCount(0);
+
+            for (Iterator<ProductCatalog> it = productCatalogDirectory.getProductCatalogList().iterator(); it.hasNext();) {
+                ProductCatalog productCatalog = it.next();
+                if (productCatalog.getProductName().contains(txtProductNameExact.getText())) {
+                    Object[] row = new Object[4];
+                    row[0] = productCatalog;
+                    row[1] = productCatalog.getModelNumber();
+                    row[2] = productCatalog.getVendorName();
+                    row[3] = productCatalog.getBasePrice();
+
+                    dtm.addRow(row);
+                }
+            }
+            if (tblCustomerView.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "No Entries Found!!!");
+            }
+        }
+
+        if ((txtProductNameExact.getText().isEmpty()) && (!txtModelNameExact.getText().isEmpty())
+                && (txtVendorNameExact.getText().isEmpty())
+                && (txtPriceLess.getText().isEmpty())) {
+
+            if (txtModelNameExact.getText().startsWith(" ")) {
+                JOptionPane.showMessageDialog(this, "Please enter Product Name Properly", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            DefaultTableModel dtm = (DefaultTableModel) tblCustomerView.getModel();
+            dtm.setRowCount(0);
+
+            for (Iterator<ProductCatalog> it = productCatalogDirectory.getProductCatalogList().iterator(); it.hasNext();) {
+                ProductCatalog productCatalog = it.next();
+                if (productCatalog.getModelNumber().contains(txtModelNameExact.getText())) {
+                    Object[] row = new Object[4];
+                    row[0] = productCatalog;
+                    row[1] = productCatalog.getModelNumber();
+                    row[2] = productCatalog.getVendorName();
+                    row[3] = productCatalog.getBasePrice();
+
+                    dtm.addRow(row);
+                }
+            }
+            if (tblCustomerView.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "No Entries Found!!!");
+            }
+        }
+
+        if ((txtProductNameExact.getText().isEmpty()) && (txtModelNameExact.getText().isEmpty())
+                && (!txtVendorNameExact.getText().isEmpty())
+                && (txtPriceLess.getText().isEmpty())) {
+
+            if (txtVendorNameExact.getText().startsWith(" ")) {
+                JOptionPane.showMessageDialog(this, "Please enter Product Name Properly", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            DefaultTableModel dtm = (DefaultTableModel) tblCustomerView.getModel();
+            dtm.setRowCount(0);
+
+            for (Iterator<ProductCatalog> it = productCatalogDirectory.getProductCatalogList().iterator(); it.hasNext();) {
+                ProductCatalog productCatalog = it.next();
+                if (productCatalog.getVendorName().contains(txtVendorNameExact.getText())) {
+                    Object[] row = new Object[4];
+                    row[0] = productCatalog;
+                    row[1] = productCatalog.getModelNumber();
+                    row[2] = productCatalog.getVendorName();
+                    row[3] = productCatalog.getBasePrice();
+
+                    dtm.addRow(row);
+                }
+            }
+            if (tblCustomerView.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "No Entries Found!!!");
+            }
+        }
+
+        if ((txtProductNameExact.getText().isEmpty()) && (txtModelNameExact.getText().isEmpty())
+                && (txtVendorNameExact.getText().isEmpty())
+                && (!txtPriceLess.getText().isEmpty())) {
+
+            if (txtPriceLess.getText().startsWith(" ")) {
+                JOptionPane.showMessageDialog(this, "Please enter Product Name Properly", "Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            DefaultTableModel dtm = (DefaultTableModel) tblCustomerView.getModel();
+            dtm.setRowCount(0);
+
+            for (Iterator<ProductCatalog> it = productCatalogDirectory.getProductCatalogList().iterator(); it.hasNext();) {
+                ProductCatalog productCatalog = it.next();
+                if (String.valueOf(productCatalog.getBasePrice()).contains(txtPriceLess.getText())) {
+                    Object[] row = new Object[4];
+                    row[0] = productCatalog;
+                    row[1] = productCatalog.getModelNumber();
+                    row[2] = productCatalog.getVendorName();
+                    row[3] = productCatalog.getBasePrice();
+
+                    dtm.addRow(row);
+                }
+            }
+            if (tblCustomerView.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "No Entries Found!!!");
+            }
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnModelNumber;
-    private javax.swing.JButton btnPriceLess;
-    private javax.swing.JButton btnPriceMore;
-    private javax.swing.JButton btnProductName;
-    private javax.swing.JButton btnVendorName;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblKeyword;
     private javax.swing.JTable tblCustomerView;
     private javax.swing.JTextField txtModelNameExact;
-    private javax.swing.JTextField txtModelNumberKeyword;
     private javax.swing.JTextField txtPriceLess;
-    private javax.swing.JTextField txtPriceMore;
     private javax.swing.JTextField txtProductNameExact;
-    private javax.swing.JTextField txtProductNameKeyword;
     private javax.swing.JTextField txtVendorNameExact;
-    private javax.swing.JTextField txtVendorNameKeyword;
     // End of variables declaration//GEN-END:variables
 }
