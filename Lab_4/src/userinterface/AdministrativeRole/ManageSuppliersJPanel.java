@@ -172,6 +172,7 @@ public class ManageSuppliersJPanel extends javax.swing.JPanel {
          int dialogResult = JOptionPane.showConfirmDialog(this,"Are you sure you want to delete??","Warning", dialogButton);
          if(dialogResult == JOptionPane.YES_OPTION){
              Supplier supplier = (Supplier)tblSupplierNameList.getValueAt(selectedRow, 0);
+             
              supplierDirectory.removeSupplier(supplier);
              populateTable();
          }

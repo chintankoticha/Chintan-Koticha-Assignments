@@ -8,6 +8,7 @@ package userinterface.SupplierRole;
 import business.Product;
 import business.Supplier;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -124,6 +125,10 @@ public class SearchProductJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length-1];
+        ManageProductJPanel manageProductJPanel = (ManageProductJPanel) component;
+        manageProductJPanel.refreshTable();
         CardLayout layout= (CardLayout)userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

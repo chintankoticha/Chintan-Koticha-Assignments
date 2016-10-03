@@ -119,6 +119,18 @@ public class AddSuppliersJPanel extends javax.swing.JPanel {
         return;
         }
         
+        int flag=1;
+        for(Supplier supplier:supplierDirectory.getSupplierDirectory()){
+            if(supplier.getSupplierName().equals(txtSupplierName.getText())){
+                flag=0;
+            }
+        }
+        
+        if(flag==0){
+            JOptionPane.showMessageDialog(this, "Supplier already exists!!","ERROR",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         Supplier supplier = supplierDirectory.addSupplier();
         supplier.setSupplierName(txtSupplierName.getText());
         JOptionPane.showMessageDialog(this,"Supplier Name successfully!!!","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
