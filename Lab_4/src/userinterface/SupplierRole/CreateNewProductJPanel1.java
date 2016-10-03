@@ -136,7 +136,7 @@ public class CreateNewProductJPanel1 extends javax.swing.JPanel {
         ManageProductJPanel manageProductJPanel = (ManageProductJPanel) component;
         manageProductJPanel.refreshTable();
         CardLayout layout= (CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed

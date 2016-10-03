@@ -196,7 +196,10 @@ public class ViewProductDetailsJPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Product created successfully!!");
         
-        
+        txtPrice.setEnabled(false);
+        txtProdName.setEnabled(false);
+        btnUpdate.setEnabled(true);
+        btnSave.setEnabled(false);
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
