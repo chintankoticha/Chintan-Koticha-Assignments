@@ -17,7 +17,7 @@ public class Employee extends Person {
 
     public Employee() {
 
-        employeeId = count;
+        employeeId = count++;
     }
 
     public String getOrganization() {
